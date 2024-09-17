@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
+import org.springframework.data.geo.Point;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -31,24 +33,22 @@ public class EmergencyRequest {
     @Column(name = "location_hospital_id")
     private Integer locationHospitalId;
 
+    @Column(name = "pickup_location", columnDefinition = "point not null")
+    private Point pickupLocation;
+
     @Lob
     @Column(name = "status", nullable = false)
     private String status;
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "created_at", nullable = false)
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "updated_at", nullable = false)
-    private Instant updatedAt;
+    private LocalDateTime updatedAt;
     @Column(name = "deleted_at")
-    private Instant deletedAt;
+    private LocalDateTime deletedAt;
 
-/*
- TODO [Reverse Engineering] create field to map the 'pickup_location' column
- Available actions: Define target Java type | Uncomment as is | Remove column mapping
-    @Column(name = "pickup_location", columnDefinition = "point not null")
-    private Object pickupLocation;
-*/
+
 }
