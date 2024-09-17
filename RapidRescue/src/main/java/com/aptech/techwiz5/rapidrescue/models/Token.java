@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -29,11 +31,11 @@ public class Token {
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "issued_at", nullable = false)
-    private Instant issuedAt;
+    private LocalDateTime issuedAt;
 
     @ColumnDefault("'0000-00-00 00:00:00'")
     @Column(name = "expires_at", nullable = false)
-    private Instant expiresAt;
+    private LocalDateTime expiresAt;
 
     @Column(name = "is_revoked", nullable = false)
     private Boolean isRevoked = false;
@@ -46,13 +48,13 @@ public class Token {
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "created_at", nullable = false)
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "updated_at", nullable = false)
-    private Instant updatedAt;
+    private LocalDateTime updatedAt;
 
     @Column(name = "deleted_at")
-    private Instant deletedAt;
+    private LocalDateTime deletedAt;
 
 }

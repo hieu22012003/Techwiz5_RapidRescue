@@ -8,7 +8,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
-import java.time.Instant;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -30,13 +31,13 @@ public class Driver {
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "created_at", nullable = false)
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "updated_at", nullable = false)
-    private Instant updatedAt;
+    private LocalDateTime updatedAt;
 
     @Column(name = "deleted_at")
-    private Instant deletedAt;
+    private LocalDateTime deletedAt;
 
 }
