@@ -16,7 +16,7 @@ import "./Pages/css/style.css";
 import "./Pages/css/coloring.css";
 import "./Pages/css/colors/scheme-01.css";
 // js
-import "bootstrap";
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "jquery";
 
 function App() {

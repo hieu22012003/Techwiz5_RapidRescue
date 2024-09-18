@@ -1,0 +1,84 @@
+#pick_up_location::placeholder,
+#pick_up_location,
+#drop_off_location,
+#nearest_car::placeholder,
+#nearest_car,
+#pickup-time,
+#date-picker::placeholder {
+  color: aliceblue;
+}
+
+#nearest_car {
+  outline: none;
+  border: 0;
+}
+.nearest_car_content {
+  border: 1px solid aliceblue;
+  border-radius: 7px;
+  padding: 0.8rem 0.5rem;
+}
+
+.btn-location {
+  border: 2px solid aliceblue;
+  background-color: transparent;
+  margin-left: 5px;
+  border-radius: 7px;
+  width: 20%;
+}
+
+.btn-location img {
+  width: 90%;
+  margin: auto;
+}
+
+.row-box .col-lg-3 {
+  position: relative;
+}
+
+.row-box .box {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #ee296a;
+  position: absolute;
+  z-index: 12;
+  top: 0px;
+  left: 12px;
+}
+
+.row-box hr.lineBoxx {
+  background-color: #ee296a;
+  height: 4px;
+  position: absolute;
+  width: 100%;
+  top: -27px;
+  left: 12px;
+}
+.under-form {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.row-content {
+  color: #fff;
+}
+
+.row-content h5 {
+  color: #fff;
+  font-size: 20px;
+}
+
+.row-content p.content {
+  font-size: 13px;
+  width: 90%;
+}
+
+.booking-more {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  text-align: right;
+  color: #fff;
+}
