@@ -10,23 +10,19 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "ambulance", schema = "RapidRescure")
-public class Ambulance {
+@Table(name = "medicalequipment", schema = "RapidRescure")
+public class Medicalequipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ambulance_id", nullable = false)
+    @Column(name = "equipment_id", nullable = false)
     private Integer id;
 
+    @Column(name = "equipment_name", nullable = false)
+    private String equipmentName;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "driver_id")
-    private Driver driver;
-
-    @Column(name = "license_plate", nullable = false, length = 50)
-    private String licensePlate;
-
-    @Lob
-    @Column(name = "ambulance_type", nullable = false)
-    private String ambulanceType;
+    @JoinColumn(name = "ambulance_id")
+    private Ambulance ambulance;
 
     @Lob
     @Column(name = "status", nullable = false)
