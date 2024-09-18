@@ -5,6 +5,7 @@ import com.aptech.techwiz5.rapidrescue.repositories.PatientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +26,7 @@ public class PatientService implements IPatientService{
 
     @Override
     public Patient createPatient(Patient patient) {
+        patient.setCreatedAt(LocalDateTime.now());
         return patientRepository.save(patient);
     }
 

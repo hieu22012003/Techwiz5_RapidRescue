@@ -6,6 +6,7 @@ import com.aptech.techwiz5.rapidrescue.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,12 +30,32 @@ public class UserService implements IUserService{
 
     @Override
     public User createUser(User user) {
+        user.setCreatedAt(LocalDateTime.now());
         return userRepository.save(user);
     }
 
     @Override
     public User updateUser(User user) {
-        return userRepository.save(user);
+        Optional<User> userOptional = userRepository.findById(user.getId());
+        if (userOptional.isEmpty()){
+            throw new RuntimeException("User not found");
+        }
+
+        User user1 = userOptional.get();
+        if(user.getEmail() != null){
+            user1.setEmail(user.getEmail());
+        }
+        if(user.getPhoneNumber() != null){
+            user1.setPhoneNumber(user.getPhoneNumber());
+        }
+        if (user.getFirstName() != null){
+            user1.setFirstName(user.getFirstName());
+        }
+        if(user.getLastName() != null){
+            user1.setLastName(user.getLastName());
+        }
+        user1.setUpdatedAt(LocalDateTime.now());
+        return user1;
     }
 
     @Override
