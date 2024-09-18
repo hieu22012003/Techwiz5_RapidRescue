@@ -5,28 +5,33 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "MedicalRecord", schema = "RapidRescure")
-public class MedicalRecord {
+@Table(name = "ambulancerunning", schema = "RapidRescure")
+public class Ambulancerunning {
     @Id
-    @Column(name = "record_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ambulance_run_id", nullable = false)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
+    @JoinColumn(name = "emergency_request_id")
+    private Emergencyrequest emergencyRequest;
 
-    @Column(name = "doctor_name", nullable = false)
-    private String doctorName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ColumnDefault("current_timestamp()")
+    @Column(name = "date_time", nullable = false)
+    private LocalDateTime dateTime;
 
     @Lob
-    @Column(name = "description")
-    private String description;
+    @Column(name = "status", nullable = false)
+    private String status;
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "created_at", nullable = false)

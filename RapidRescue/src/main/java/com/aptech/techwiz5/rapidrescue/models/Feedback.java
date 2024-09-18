@@ -5,15 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "Feedback", schema = "RapidRescure")
+@Table(name = "feedback", schema = "RapidRescure")
 public class Feedback {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "feedback_id", nullable = false)
     private Integer id;
 
@@ -22,7 +22,7 @@ public class Feedback {
     private User user;
 
     @Lob
-    @Column(name = "feedback_text")
+    @Column(name = "feedback_text", nullable = false)
     private String feedbackText;
 
     @Column(name = "rating")

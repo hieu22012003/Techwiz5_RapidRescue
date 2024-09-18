@@ -1,35 +1,31 @@
 package com.aptech.techwiz5.rapidrescue.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "AmbulanceMaintenance", schema = "RapidRescure")
-public class AmbulanceMaintenance {
+@Table(name = "medicalrecord", schema = "RapidRescure")
+public class Medicalrecord {
     @Id
-    @Column(name = "maintenance_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "record_id", nullable = false)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ambulance_id")
-    private Ambulance ambulance;
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
 
-    @Column(name = "maintenance_date", nullable = false)
-    private LocalDate maintenanceDate;
+    @Column(name = "doctor_name", nullable = false)
+    private String doctorName;
 
     @Lob
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     private String description;
 
     @ColumnDefault("current_timestamp()")

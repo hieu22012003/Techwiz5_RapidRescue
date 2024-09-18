@@ -1,22 +1,19 @@
 package com.aptech.techwiz5.rapidrescue.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
-
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "Driver", schema = "RapidRescure")
+@Table(name = "driver", schema = "RapidRescure")
 public class Driver {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "driver_id", nullable = false)
     private Integer id;
 
@@ -26,7 +23,7 @@ public class Driver {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "number_phone", length = 20)
+    @Column(name = "number_phone", nullable = false, length = 15)
     private String numberPhone;
 
     @ColumnDefault("current_timestamp()")
