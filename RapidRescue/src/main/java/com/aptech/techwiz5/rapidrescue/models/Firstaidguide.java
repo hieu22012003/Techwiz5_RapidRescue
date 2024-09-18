@@ -5,20 +5,20 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "FirstAidGuide", schema = "RapidRescure")
-public class FirstAidGuide {
+@Table(name = "firstaidguide", schema = "RapidRescure")
+public class Firstaidguide {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "guide_id", nullable = false)
     private Integer id;
 
     @Lob
-    @Column(name = "guide_text")
+    @Column(name = "guide_text", nullable = false)
     private String guideText;
 
     @ColumnDefault("current_timestamp()")
