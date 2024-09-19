@@ -3,6 +3,7 @@ import OurFeatures from "../Components/OurFeatures";
 import { default as Car1, default as Car2 } from "../Pages/images/car.png";
 import Slider1 from "../Pages/images/slider/1.jpg";
 import xecuuthuong from "./assets/img/xecuuthuong.jpeg";
+import ambulanceCircle from "./assets/img/xecuuthuongVuong.png";
 import ambulanceSvg from "./assets/svg/ambulance-svgrepo-com.svg";
 import locationSvg from "./assets/svg/location-svgrepo-com.svg";
 import "./css/page/Home.css";
@@ -93,33 +94,36 @@ export default function Home() {
   };
 
   const overlayStyle = {
-    background: "rgba(0, 0, 0, 0.5)", // Black overlay with 50% opacity
+    // background: "rgba(0, 0, 0, 0.5)", // Black overlay with 50% opacity
     padding: "50px",
     marginTop: "50px",
     borderRadius: "8px",
     color: "white", // Ensure text color is white
+    width: "70vw",
   };
 
   const buttonStyle = {
-    backgroundColor: "#f8cfcf", // Light pink color
+    backgroundColor: "#d94b7b", // Light pink color
     border: "none",
-    color: "#000", // Text color for button
+    color: "#fff", // Text color for button
   };
 
   return (
     <div>
       <div className="no-bottom no-top" id="content">
         <div id="top" />
+
         <section
           id="section-hero"
           aria-label="section"
-          className="no-top"
+          className=""
+          style={{ paddingTop: "150px" }}
           data-bgcolor="#121212">
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-12 mt-80 sm-mt-0">
                 <div className="spacer-single sm-hide" />
-                <div style={formContainerStyle}>
+                <div className="form-booking-emergency">
                   <div style={overlayStyle}>
                     <form
                       name="contactForm"
@@ -132,7 +136,7 @@ export default function Home() {
                           <div className="col-lg-6">
                             <h5
                               style={{
-                                color: "white",
+                                color: "#222",
                               }}>
                               Pick Up Location
                             </h5>
@@ -165,7 +169,7 @@ export default function Home() {
                           <div className="col-lg-6">
                             <h5
                               style={{
-                                color: "white",
+                                color: "#222",
                               }}>
                               Drop Off Location
                             </h5>
@@ -179,27 +183,6 @@ export default function Home() {
                               </option>
                             </select>
                           </div>
-                          <div className="col-lg-6">
-                            <h5
-                              style={{
-                                color: "white",
-                              }}>
-                              Pick Up Date & Time
-                            </h5>
-                            <div className="date-time-field">
-                              <input
-                                type="text"
-                                id="date-picker"
-                                name="Pick Up Date"
-                                defaultValue=""
-                                placeholder="Enter Date"
-                              />
-                              <select name="Pick Up Time" id="pickup-time">
-                                <option value="00:00">00:00</option>
-                                <option value="00:30">00:30</option>
-                              </select>
-                            </div>
-                          </div>
                         </div>
                       </div>
                       <div className="col-lg-4 px-3">
@@ -207,7 +190,7 @@ export default function Home() {
                           <div className="px-0 container">
                             <h5
                               style={{
-                                color: "white",
+                                color: "#222",
                               }}
                               className="w-100">
                               Nearest car
@@ -219,7 +202,6 @@ export default function Home() {
                                   alt=""
                                   className="w-100"
                                   style={{
-                                    filter: "invert(100%)",
                                     scale: "1.3",
                                   }}
                                 />
@@ -267,7 +249,9 @@ export default function Home() {
                       Sorry there was an error sending your form.
                     </div>
                   </div>
-                  <div className="under-form container-fluid mt-5">
+                  <div
+                    className="under-form container-fluid mt-5"
+                    style={{ paddingLeft: "15px" }}>
                     <div className="row row-box">
                       <div className="col-lg-3">
                         <div className="box"></div>
@@ -330,10 +314,13 @@ export default function Home() {
                     <button
                       type="button"
                       className="btn-main"
-                      style={{ backgroundColor: "#ee296a" }}>
+                      style={{ backgroundColor: "#d94b7b" }}>
                       MOVE TO PAGE {"->"}
                     </button>
                   </div>
+                </div>
+                <div className="circle-ambulance">
+                  <img src={ambulanceCircle} alt="ambulance" />
                 </div>
               </div>
             </div>

@@ -4,3 +4,7 @@
 #mainmenu .menu-item {
   margin: 0;
 }
+
+.active {
+  color: #ee296a !important;
+}
