@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo1 from "../Pages/images/logo-light.png";
 import "./css/navbar.css";
 const Navbar = () => {
+  const location = useLocation();
+
   return (
     <header
       className="transparent has-topbar"
@@ -21,8 +23,9 @@ const Navbar = () => {
                         src={Logo1}
                         alt="Logo"
                         style={{
-                          width: "150px",
+                          width: "120px",
                           height: "100px",
+                          objectFit: "cover",
                         }}
                       />
                     </Link>
@@ -42,7 +45,9 @@ const Navbar = () => {
                   }}>
                   <li>
                     <Link
-                      className="menu-item"
+                      className={`menu-item ${
+                        location.pathname === "/" ? "active" : ""
+                      }`}
                       to="/"
                       style={{ color: "#000" }} // Black text for menu items
                     >
@@ -51,7 +56,9 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      className="menu-item"
+                      className={`menu-item ${
+                        location.pathname === "/service" ? "active" : ""
+                      }`}
                       to="Service"
                       style={{ color: "#000" }} // Black text for menu items
                     >
@@ -85,7 +92,9 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      className="menu-item"
+                      className={`menu-item ${
+                        location.pathname === "/Blogs" ? "active" : ""
+                      }`}
                       to="Blogs"
                       style={{ color: "#000" }} // Black text for menu items
                     >
@@ -94,7 +103,9 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      className="menu-item"
+                      className={`menu-item ${
+                        location.pathname === "/Contact" ? "active" : ""
+                      }`}
                       to="Contact"
                       style={{ color: "#000" }} // Black text for menu items
                     >

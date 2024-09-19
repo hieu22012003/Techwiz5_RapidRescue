@@ -5,7 +5,7 @@
 #nearest_car,
 #pickup-time,
 #date-picker::placeholder {
-  color: aliceblue;
+  color: #222222;
 }
 
 #nearest_car {
@@ -13,13 +13,13 @@
   border: 0;
 }
 .nearest_car_content {
-  border: 1px solid aliceblue;
+  border: 1px solid #222222;
   border-radius: 7px;
   padding: 0.8rem 0.5rem;
 }
 
 .btn-location {
-  border: 2px solid aliceblue;
+  border: 2px solid #222222;
   background-color: transparent;
   margin-left: 5px;
   border-radius: 7px;
@@ -40,7 +40,7 @@
   width: 30px;
   height: 30px;
   border-radius: 5px;
-  background-color: #ee296a;
+  background-color: #d94b7b;
   position: absolute;
   z-index: 12;
   top: 0px;
@@ -48,7 +48,7 @@
 }
 
 .row-box hr.lineBoxx {
-  background-color: #ee296a;
+  background-color: #d94b7b;
   height: 4px;
   position: absolute;
   width: 100%;
@@ -56,16 +56,17 @@
   left: 12px;
 }
 .under-form {
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
   border-radius: 8px;
+  padding-left: 15px;
 }
 
 .row-content {
-  color: #fff;
+  color: #222;
 }
 
 .row-content h5 {
-  color: #fff;
+  color: #222;
   font-size: 20px;
 }
 
@@ -75,12 +76,15 @@
 }
 
 .booking-more {
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
   border-radius: 8px;
   margin-top: 10px;
   padding: 10px 20px;
   text-align: right;
   color: #fff;
+}
+.booking-more .text-content {
+  color: #222;
 }
 
 .ambulance-introduce .row1 h4.title {
@@ -139,3 +143,28 @@
 .btn-main {
   background-color: #ee296a !important;
 }
+
+.form-booking-emergency{
+background-color: rgba(0, 0, 0, 0.04);
+}
+
+.circle-ambulance {
+  background-color: #fff;
+  width: 20vw;
+  height: 20vw;
+  /* background-color: #ee296a; */
+  border-radius: 50% 0 0 50%;
+  overflow: hidden;
+  /* box-shadow: -21px 19px 29px -23px #e284a3; */
+  position: absolute;
+  top: 15%;
+  right: 5%;
+}
+
+.circle-ambulance img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
