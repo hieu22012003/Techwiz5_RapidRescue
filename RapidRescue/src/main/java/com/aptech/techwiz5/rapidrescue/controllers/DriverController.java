@@ -44,11 +44,8 @@ public class DriverController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Driver>> getDriverById(@PathVariable int id){
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(driverService.getDriverById(id));
+    public ResponseEntity<Driver> getDriverById(@PathVariable int id){
+        return ResponseEntity.status(HttpStatus.OK).body(driverService.getDriverById(id));
     }
-
 
 }

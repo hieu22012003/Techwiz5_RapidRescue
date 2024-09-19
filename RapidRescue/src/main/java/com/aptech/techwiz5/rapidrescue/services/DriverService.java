@@ -22,7 +22,7 @@ public class DriverService {
     public Driver updateDriver(Driver driverUpdate) {
         Optional<Driver> driverOptional = driverRepository.findById(driverUpdate.getId());
         if (driverOptional.isPresent()) {
-            throw new RuntimeException("Drivet not found");
+            throw new RuntimeException("Driver not found");
         }
         Driver driver = driverOptional.get();
 
@@ -44,8 +44,12 @@ public class DriverService {
     public List<Driver> getAllDrivers() {
         return driverRepository.findAll();
     }
-    public Optional<Driver> getDriverById(int id) {
-        return driverRepository.findById(id);
-    }
 
+    public Driver getDriverById(int id) {
+        Optional<Driver> driverOptional = driverRepository.findById(id);
+        if (driverOptional.isPresent()) {
+            throw new RuntimeException("Driver not found");
+        }
+        return driverOptional.get();
+    }
 }
