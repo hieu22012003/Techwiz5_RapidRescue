@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import DoctorProfiles from "../Components/DoctorProfiles";
 import OurFeatures from "../Components/OurFeatures";
 import { default as Car1, default as Car2 } from "../Pages/images/car.png";
 import Slider1 from "../Pages/images/slider/1.jpg";
+import xecuuthuong from "./assets/img/xecuuthuong.jpeg";
 import ambulanceSvg from "./assets/svg/ambulance-svgrepo-com.svg";
 import locationSvg from "./assets/svg/location-svgrepo-com.svg";
 import "./css/page/Home.css";
@@ -89,7 +89,7 @@ export default function Home() {
     position: "relative",
     background: `url(${Slider1}) no-repeat center center/cover`,
     width: "100%",
-    padding: "150px 100px 50px 100px",
+    padding: "150px 100px 20px 100px",
   };
 
   const overlayStyle = {
@@ -341,8 +341,59 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <DoctorProfiles />
       <OurFeatures />
+
+      <section className="ambulance-introduce">
+        <div className="container">
+          <div className="row row1">
+            <div className="col-lg-5">
+              <img src={xecuuthuong} className="w-100 imgXecuuthuong" alt="" />
+            </div>
+            <div className="col-lg-7">
+              <h4 className="title">
+                With fast and convenient ambulance booking service!
+              </h4>
+              <p className="content">
+                Aliquam egestas dolor at ullamcorper accumsan refreshing. Neque
+                porro est qui dolorem ipsum quia quaed inventore veritatis et
+                quasi architecto beatae vitae dicta sunt explicabo. Aelltes port
+                lacus quis enim var sed efficitur turpis gilla sed sit amet
+                finibus eros. Lorem Ipsum is simply dummy text of the printing
+                and typesetting industry. Lorem Ipsum has been the ndustry
+                standard dummy text ever since the 1500s.
+                <br />
+                Aliquam egestas dolor at ullamcorper accumsan refreshing. Neque
+                porro est qui dolorem ipsum quia quaed inventore veritatis et
+                quasi architecto beatae vitae dicta sunt explicabo. Aelltes port
+                lacus quis enim var sed efficitur turpis gilla sed sit amet
+                finibus eros..
+              </p>
+            </div>
+          </div>
+          <div className="top-content">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-lg-5">
+                  <span className="title">Established in</span>
+                  <div className="content">
+                    <img src={ambulanceSvg} className="logoContent" alt="" />{" "}
+                    <span className="text">2024</span>
+                  </div>
+                </div>
+                <div className="col-lg-7">
+                  <button
+                    type="button"
+                    className="btn-main btn-book-now"
+                    style={{ backgroundColor: "#ee296a" }}>
+                    Booking Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <DoctorProfiles /> */}
     </div>
   );
 }

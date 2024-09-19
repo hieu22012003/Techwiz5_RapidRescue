@@ -5814,7 +5814,7 @@ i.font60 {
 
 .ul-style-4 li {
     margin: 2px 0 2px 0;
-    display: ;
+    /* display: ; */
     font-weight: 500;
 }
 
@@ -13342,7 +13342,7 @@ i.big {
 }
 
 .de_tab.tab_style_4 .de_nav {
-    -webkit-touchvar(--title-font-color)out: none;
+    /* -webkit-touchvar(--title-font-color)out: none; */
     /* iOS Safari */
     -webkit-user-select: none;
     /* Safari */
@@ -18865,3 +18865,5 @@ img {
         top: -21px;
     }
 }
+
+
