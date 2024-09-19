@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import BookingEmergency from "../Components/BookingEmergency";
 import OurFeatures from "../Components/OurFeatures";
 import { default as Car1, default as Car2 } from "../Pages/images/car.png";
 import Slider1 from "../Pages/images/slider/1.jpg";
 import xecuuthuong from "./assets/img/xecuuthuong.jpeg";
 import ambulanceSvg from "./assets/svg/ambulance-svgrepo-com.svg";
-import locationSvg from "./assets/svg/location-svgrepo-com.svg";
 import "./css/page/Home.css";
 const carOptions = [
   { value: "car1", label: "Car 1", image: Car1 },
@@ -93,253 +93,26 @@ export default function Home() {
   };
 
   const overlayStyle = {
-    background: "rgba(0, 0, 0, 0.5)", // Black overlay with 50% opacity
+    // background: "rgba(0, 0, 0, 0.5)", // Black overlay with 50% opacity
     padding: "50px",
     marginTop: "50px",
     borderRadius: "8px",
     color: "white", // Ensure text color is white
+    width: "70vw",
   };
 
   const buttonStyle = {
-    backgroundColor: "#f8cfcf", // Light pink color
+    backgroundColor: "#d94b7b", // Light pink color
     border: "none",
-    color: "#000", // Text color for button
+    color: "#fff", // Text color for button
   };
 
   return (
     <div>
       <div className="no-bottom no-top" id="content">
         <div id="top" />
-        <section
-          id="section-hero"
-          aria-label="section"
-          className="no-top"
-          data-bgcolor="#121212">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-lg-12 mt-80 sm-mt-0">
-                <div className="spacer-single sm-hide" />
-                <div style={formContainerStyle}>
-                  <div style={overlayStyle}>
-                    <form
-                      name="contactForm"
-                      id="booking_form"
-                      className="form-s2 row g-4 on-submit-hide"
-                      method="post"
-                      action="#">
-                      <div className="col-lg-8 d-light">
-                        <div className="row g-4">
-                          <div className="col-lg-6">
-                            <h5
-                              style={{
-                                color: "white",
-                              }}>
-                              Pick Up Location
-                            </h5>
-                            <div className="d-flex w-100">
-                              {" "}
-                              <input
-                                type="text"
-                                name="Pick Up Location"
-                                id="pick_up_location"
-                                className="form-control opt-1-disable "
-                                placeholder="Your Pick Up Location"
-                                value={
-                                  location.latitude !== null &&
-                                  location.longitude !== null
-                                    ? location.latitude +
-                                      "," +
-                                      location.longitude
-                                    : null
-                                }
-                              />
-                              <button
-                                type="button"
-                                className="btn-location"
-                                onClick={getLocation}>
-                                {" "}
-                                <img src={locationSvg} alt="" />
-                              </button>
-                            </div>
-                          </div>
-                          <div className="col-lg-6">
-                            <h5
-                              style={{
-                                color: "white",
-                              }}>
-                              Drop Off Location
-                            </h5>
-                            <select
-                              name="Drop Off Location"
-                              id="drop_off_location"
-                              className="form-control opt-1-disable"
-                              required="">
-                              <option value="New York">
-                                Enter your Drop Off Location
-                              </option>
-                            </select>
-                          </div>
-                          <div className="col-lg-6">
-                            <h5
-                              style={{
-                                color: "white",
-                              }}>
-                              Pick Up Date & Time
-                            </h5>
-                            <div className="date-time-field">
-                              <input
-                                type="text"
-                                id="date-picker"
-                                name="Pick Up Date"
-                                defaultValue=""
-                                placeholder="Enter Date"
-                              />
-                              <select name="Pick Up Time" id="pickup-time">
-                                <option value="00:00">00:00</option>
-                                <option value="00:30">00:30</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-4 px-3">
-                        <div className="row g-4">
-                          <div className="px-0 container">
-                            <h5
-                              style={{
-                                color: "white",
-                              }}
-                              className="w-100">
-                              Nearest car
-                            </h5>
-                            <div className="row mx-0 nearest_car_content">
-                              <div className="col-lg-2">
-                                <img
-                                  src={ambulanceSvg}
-                                  alt=""
-                                  className="w-100"
-                                  style={{
-                                    filter: "invert(100%)",
-                                    scale: "1.3",
-                                  }}
-                                />
-                              </div>
-                              <div className="col-lg-10">
-                                <input
-                                  type="text"
-                                  id="nearest_car"
-                                  name="Nearest Car"
-                                  defaultValue="ABCD-1234"
-                                  placeholder="Nearest Car"
-                                  className="w-100"
-                                />
-                              </div>
-                            </div>
-                            <div className="row mt-3 mx-0">
-                              <input
-                                type="submit"
-                                id="send_message"
-                                defaultValue="Booking"
-                                className="btn-main w-100 mx-auto px-0"
-                                style={buttonStyle} // Apply button style
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                    <div id="success_message" className="success s2">
-                      <div className="row">
-                        <div className="col-lg-8 offset-lg-2 text-light text-center">
-                          <h3 className="mb-2">
-                            Congratulations! Your booking has been sent
-                            successfully. We will contact you shortly.
-                          </h3>
-                          Refresh this page if you want to book again.
-                          <div className="spacer-20" />
-                          <a className="btn-main btn-black" href="booking.html">
-                            Reload this page
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div id="error_message" className="error">
-                      Sorry there was an error sending your form.
-                    </div>
-                  </div>
-                  <div className="under-form container-fluid mt-5">
-                    <div className="row row-box">
-                      <div className="col-lg-3">
-                        <div className="box"></div>
-                        <hr className="lineBoxx" />
-                      </div>
-                      <div className="col-lg-3">
-                        <div className="box"></div>
-                        <hr className="lineBoxx" />
-                      </div>
-                      <div className="col-lg-3">
-                        <div className="box"></div>
-                        <hr className="lineBoxx" />
-                      </div>
-                      <div className="col-lg-3">
-                        <div className="box"></div>
-                      </div>
-                    </div>
-                    <div className="row row-content mt-5">
-                      <div className="col-lg-3">
-                        <h5 className="title">Choose a vehicle</h5>
-                        <p className="content">
-                          Unlock unparalleled adventures and memorable journeys
-                          with our vast fleet of vehicles tailored to suit every
-                          need, taste, and destination.
-                        </p>
-                      </div>
-                      <div className="col-lg-3">
-                        <h5 className="title">Pick location & date</h5>
-                        <p className="content">
-                          Pick your ideal location and date, and let us take you
-                          on a journey filled with convenience, flexibility, and
-                          unforgettable experiences.
-                        </p>
-                      </div>
-                      <div className="col-lg-3">
-                        <h5 className="title">Make a booking</h5>
-                        <p className="content">
-                          Secure your reservation with ease, unlocking a world
-                          of possibilities and embarking on your next adventure
-                          with confidence.
-                        </p>
-                      </div>
-                      <div className="col-lg-3">
-                        <h5 className="title">Sit back & relax</h5>
-                        <p className="content">
-                          Hassle-free convenience as we take care of every
-                          detail, allowing you to unwind and embrace a journey
-                          filled comfort.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="booking-more mt-3">
-                    <span className="text-content">
-                      {" "}
-                      <span style={{ color: "#ee296a" }}>*</span> This is an
-                      emergency booking service, if you want to book a car with
-                      full information
-                    </span>{" "}
-                    <button
-                      type="button"
-                      className="btn-main"
-                      style={{ backgroundColor: "#ee296a" }}>
-                      MOVE TO PAGE {"->"}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="spacer-double" />
-          </div>
-        </section>
+
+        <BookingEmergency />
       </div>
       <OurFeatures />
 
