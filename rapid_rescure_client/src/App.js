@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Blogs from "./Pages/Blogs";
+import Contact from "./Pages/Contact";
+import Booking from "./Pages/Booking";
+import Service from "./Pages/Service";
+// css
+import "./Pages/css/bootstrap.min.css";
+import "./Pages/css/mdb.min.css";
+import "./Pages/css/plugins.css";
+import "./Pages/css/style.css";
+import "./Pages/css/coloring.css";
+import "./Pages/css/colors/scheme-01.css";
+// js
+import "bootstrap";
+import "jquery";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/Login" element={<Login />} />
+                <Route path="/Blogs" element={<Blogs />} />
+                <Route path="/Booking" element={<Booking />} />
+                <Route path="/Contact" element={<Contact />} />
+                <Route path="/Service" element={<Service />} />
+            </Routes>
+            <Footer />
+        </BrowserRouter>
+    );
 }
 
 export default App;
