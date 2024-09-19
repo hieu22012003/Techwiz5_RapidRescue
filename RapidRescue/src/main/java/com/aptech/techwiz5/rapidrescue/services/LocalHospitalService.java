@@ -1,6 +1,6 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
-import com.aptech.techwiz5.rapidrescue.models.EmergencyRequest;
+import com.aptech.techwiz5.rapidrescue.models.Emergencyrequest;
 import com.aptech.techwiz5.rapidrescue.models.LocationHospital;
 import com.aptech.techwiz5.rapidrescue.repositories.LocationHospitalRepository;
 import lombok.AllArgsConstructor;

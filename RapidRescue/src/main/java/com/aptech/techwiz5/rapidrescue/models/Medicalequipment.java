@@ -10,31 +10,23 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "user", schema = "RapidRescure")
-public class User {
+@Table(name = "medicalequipment", schema = "RapidRescure")
+public class Medicalequipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "equipment_id", nullable = false)
     private Integer id;
 
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
-
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
-
-    @Column(name = "email", nullable = false)
-    private String email;
-
-    @Column(name = "phone_number", nullable = false, length = 15)
-    private String phoneNumber;
-
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "equipment_name", nullable = false)
+    private String equipmentName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
-    private Role role;
+    @JoinColumn(name = "ambulance_id")
+    private Ambulance ambulance;
+
+    @Lob
+    @Column(name = "status", nullable = false)
+    private String status;
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "created_at", nullable = false)
