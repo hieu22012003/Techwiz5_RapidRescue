@@ -59,4 +59,6 @@ public class EmergencyRequestService implements IEmergencyRequestService {
     public void deleteEmergencyRequest(Integer id) {
         emergencyRequestRepository.deleteById(id);
     }
+
+
 }
