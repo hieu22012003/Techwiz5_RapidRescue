@@ -1,6 +1,8 @@
 package com.aptech.techwiz5.rapidrescue.controllers;
 
 import com.aptech.techwiz5.rapidrescue.models.User;
+import com.aptech.techwiz5.rapidrescue.services.DriverService;
+import com.aptech.techwiz5.rapidrescue.services.EmergencyTechnicianService;
 import com.aptech.techwiz5.rapidrescue.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,8 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserController {
     final UserService userService;
+    final EmergencyTechnicianService emergencyTechnicianService;
+    final DriverService driverService;
 
     @RequestMapping("/create")
     public ResponseEntity<User> createUser(@RequestBody User user){

@@ -1,6 +1,7 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
 import com.aptech.techwiz5.rapidrescue.models.Ambulance;
+import com.aptech.techwiz5.rapidrescue.models.EmergencyTechnician;
 import com.aptech.techwiz5.rapidrescue.models.User;
 import com.aptech.techwiz5.rapidrescue.repositories.UserRepository;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,8 @@ import java.util.Optional;
 @Service
 public class UserService implements IUserService{
     final UserRepository userRepository;
+
+
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
