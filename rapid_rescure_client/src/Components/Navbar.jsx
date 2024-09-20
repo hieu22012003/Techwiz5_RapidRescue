@@ -62,45 +62,7 @@ const Navbar = () => {
                                             Home
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link
-                                            className={`menu-item ${
-                                                location.pathname === "/service"
-                                                    ? "active"
-                                                    : ""
-                                            }`}
-                                            to="/service"
-                                            style={{ color: "#000" }} // Black text for menu items
-                                        >
-                                            Service
-                                        </Link>
-                                        <ul
-                                            style={{
-                                                listStyleType: "none",
-                                                padding: 0,
-                                                fontSize: "18px", // Set font size for submenu items
-                                            }}
-                                        >
-                                            <li>
-                                                <Link
-                                                    className="menu-item"
-                                                    to="/booking"
-                                                    style={{ color: "#000" }} // Black text for submenu items
-                                                >
-                                                    Booking
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    className="menu-item"
-                                                    to="/booking"
-                                                    style={{ color: "#000" }} // Black text for submenu items
-                                                >
-                                                    Booking
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </li>
+
                                     <li>
                                         <Link
                                             className={`menu-item ${
@@ -167,32 +129,47 @@ const Navbar = () => {
                                             <div className="d-line"></div>
                                             <ul className="menu-col">
                                                 <li>
-                                                    <Link to="/account-dashboard">
-                                                        <i className="fa fa-home"></i>
-                                                        Dashboard
+                                                    <Link to="/MedicalRecords">
+                                                        <i
+                                                            style={{
+                                                                color: "#e57373",
+                                                            }}
+                                                            className="fa fa-home"
+                                                        ></i>
+                                                        Medical Records
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link to="/account-profile">
-                                                        <i className="fa fa-user"></i>
+                                                    <Link to="/MyProfile">
+                                                        <i
+                                                            style={{
+                                                                color: "#e57373",
+                                                            }}
+                                                            className="fa fa-user"
+                                                        ></i>
                                                         My Profile
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link to="/account-booking">
-                                                        <i className="fa fa-calendar"></i>
-                                                        My Orders
+                                                    <Link to="/MyOrders">
+                                                        <i
+                                                            style={{
+                                                                color: "#e57373",
+                                                            }}
+                                                            className="fa fa-calendar"
+                                                        ></i>
+                                                        My Order
                                                     </Link>
                                                 </li>
-                                                <li>
-                                                    <Link to="/account-favorite">
-                                                        <i className="fa fa-car"></i>
-                                                        My Favorite Cars
-                                                    </Link>
-                                                </li>
+
                                                 <li>
                                                     <Link to="/login">
-                                                        <i className="fa fa-sign-out"></i>
+                                                        <i
+                                                            style={{
+                                                                color: "#e57373",
+                                                            }}
+                                                            className="fa fa-sign-out"
+                                                        ></i>
                                                         Sign Out
                                                     </Link>
                                                 </li>
