@@ -31,7 +31,7 @@ function App() {
                 <Route path="/Booking" element={<Booking />} />
                 <Route path="/Contact" element={<Contact />} />
                 <Route path="/Service" element={<Service />} />
-                <Route path="/Register" element={<Register />} />
+
             </Routes>
             <Footer />
         </BrowserRouter>
