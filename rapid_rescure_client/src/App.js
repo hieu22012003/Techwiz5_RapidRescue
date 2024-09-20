@@ -20,7 +20,7 @@ import "./Pages/css/colors/scheme-01.css";
 // js
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "jquery";
-import Register from "./Pages/Register";
+
 
 function App() {
     return (
