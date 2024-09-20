@@ -7,9 +7,9 @@ import Login from "./Pages/Login";
 import Blogs from "./Pages/Blogs";
 import Contact from "./Pages/Contact";
 import Booking from "./Pages/Booking";
-import Service from "./Pages/Service";
-import Register from "./Pages/Register";
-import ForgotPassword from "./Pages/ForgotPassword";
+import MedicalRecords from "./Pages/MedicalRecords";
+import MyProfile from "./Pages/MyProfile";
+import MyOrders from "./Pages/MyOrders";
 // css
 import "./Pages/css/bootstrap.min.css";
 import "./Pages/css/mdb.min.css";
@@ -31,9 +31,9 @@ function App() {
                 <Route path="/Blogs" element={<Blogs />} />
                 <Route path="/Booking" element={<Booking />} />
                 <Route path="/Contact" element={<Contact />} />
-                <Route path="/Service" element={<Service />} />
-                <Route path="/Register" element={<Register />} />
-                <Route path="/ForgotPassword" element={<ForgotPassword />} />
+                <Route path="/MedicalRecords" element={<MedicalRecords />} />
+                <Route path="/MyProfile" element={<MyProfile />} />
+                <Route path="/MyOrders" element={<MyOrders />} />
             </Routes>
             <Footer />
         </BrowserRouter>
