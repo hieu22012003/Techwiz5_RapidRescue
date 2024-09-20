@@ -4,11 +4,12 @@ import team2 from "../Pages/images/team/2.jpg";
 import team3 from "../Pages/images/team/3.jpg";
 import team4 from "../Pages/images/team/4.jpg";
 import blogs from "../Pages/images/blogs.jpg";
+import "../Pages/css/page/Blog.css"
 
 const Blogs = () => {
     // Inline styles object for the background image
     const subheaderStyle = {
-        height: "80vh", // 50% of the viewport height
+        height: "40vh", // 50% of the viewport height
         backgroundImage: `url(${blogs})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -16,6 +17,7 @@ const Blogs = () => {
     };
 
     return (
+        
         <div className="no-bottom no-top zebra" id="content">
             <div id="top"></div>
 
@@ -36,283 +38,105 @@ const Blogs = () => {
                     </div>
                 </div>
             </section>
+            <div className="blog-container">
+  <nav className="sidebar">
+    <ul>
+      <li>
+        <a href="#section1">Wound treatment</a>
+      </li>
+      <li>
+        <a href="#section2">Drowning person</a>
+      </li>
+      <li>
+        <a href="#section3"> Choking on foreign objects</a>
+      </li>
+      <li>
+        <a href="#section4">Cardiopulmonary resuscitation for  suffocating</a>
+      </li>
+    </ul>
+  </nav>
+  <div className="content">
+    <h2 id="section1">Wound treatment</h2>
+    <p>Scratches, wounds (cuts, sprains, etc.) should be cleaned with clean water, and washed <br /> under running water as much as possible to remove the wound material and spread bacteria.
+    <br /> - If the wound is muddy or sandy, use hydrogen peroxide to wash the wound to remove the mud.
+    <br /> - Clean, rinse with soapy water and reduce pain with a towel.
+    Treat deep, long wounds, multiple deep cuts on the limbs. <br /> - Use clean hands (use medical hand stretchers if available) firmly on the wound, creating pressure to stretch the blood vessels.
+    <br /> - Use a soft cloth to cover the wound. <br />
+    - Bandage the wound to create pressure to stop bleeding.
+    <br /> - If there is enough bandage, there is no need to remove it, but continue to use additional gauze on top.</p>
+    <img src="https://tamanhhospital.vn/wp-content/uploads/2021/10/Xu-ly-vet-thuong.jpg" alt="bangbo" />
+        <p>Deep cut, profuse bleeding
+    Call an ambulance/help from others.
+    Wash hands and wear gloves (if available).
+    <br /> - Exposing the wound requires removing foreign objects in a shallow position. Do not remove <br /> foreign objects that are deeply embedded in the wound.
+    <br /> - Hemostatic control is achieved by applying a bandage directly to the wound, using a clean bandage.
+    <br /> - Raise the injured limb above the level of the heart (if there is no fracture). We need to place the victim in a <br /> comfortable position with the head low.
+    <br /> - Use a rolled bandage to apply pressure to the wound to help stop the bleeding (should use a sterile cloth pad in the middle).
+    <br /> - For wounds with deep foreign objects, we need to bandage around the foreign object to fix it. <br /> - If the wound is still bleeding, we should not use additional gauze pad in the middle but reassess the wound <br /> and place a new pad in the correct position to stop the bleeding.
+    <br /> - Continue to check the victim's airway and breathing. Monitor for signs of shock while waiting for emergency services to arrive.
+    <br /> - Deep cut in the neck
+    <br /> - Use your hand to apply pressure to the wound to stop the bleeding
+    <br /> - Use an elastic bandage to wrap diagonally across the neck and armpit to apply pressure to stop the bleeding <br /> and quickly take the victim to the hospital.
+    <br /> - Sprained ligament injury
+    <br /> - When a sprain occurs, remove shoes and socks to compress the injured area.
+    <br /> - Apply a towel wrapped in ice to help reduce swelling and relieve pain.
+    <br /> - A bandage should be wrapped around the sprained joint, but not too tightly, as the wound will swell.
+    <br /> - Take the victim to a medical facility immediately after bandaging.</p>
 
-            <section aria-label="section" className="jarallax text-light">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12 text-center">
-                            <h2
-                                style={{
-                                    color: "black",
-                                }}
-                            >
-                                Board of Directors
-                            </h2>
-                            <div className="spacer-20"></div>
-                        </div>
+<img src="https://tamanhhospital.vn/wp-content/uploads/2021/10/So-cuu-bong-gan-ton-thuong-day-chang.jpg" alt="" />
 
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb30">
-                            <div className="f-profile text-center">
-                                <div className="fp-wrap f-invert">
-                                    <div className="fpw-overlay">
-                                        <div className="fpwo-wrap">
-                                            <div className="fpwow-icons">
-                                                <a href="#">
-                                                    <i className="fa fa-facebook fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-twitter fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-linkedin fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-pinterest fa-lg"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="fpw-overlay-btm"></div>
-                                    <img
-                                        src={team1}
-                                        className="fp-image img-fluid"
-                                        alt="Fynley Wilkinson"
-                                    />
-                                </div>
-                                <h4 style={{ color: "black" }}>
-                                    Fynley Wilkinson
-                                </h4>
-                                <p style={{ color: "black" }}>
-                                    Chief Creative Officer
-                                </p>
-                            </div>
-                        </div>
+    <h2 id="section2">Save the drowning person</h2>
+    <p>When you see someone showing signs of drowning, give the victim something to hold on to to float, <br /> such as: a buoy, banana leaf, a large, tightly-lidded plastic can, etc.
 
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb30">
-                            <div className="f-profile text-center">
-                                <div className="fp-wrap f-invert">
-                                    <div className="fpw-overlay">
-                                        <div className="fpwo-wrap">
-                                            <div className="fpwow-icons">
-                                                <a href="#">
-                                                    <i className="fa fa-facebook fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-twitter fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-linkedin fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-pinterest fa-lg"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="fpw-overlay-btm"></div>
-                                    <img
-                                        src={team2}
-                                        className="fp-image img-fluid"
-                                        alt="Peter Welsh"
-                                    />
-                                </div>
-                                <h4 style={{ color: "black" }}>Peter Welsh</h4>
-                                <p style={{ color: "black" }}>
-                                    Chief Technology Officer
-                                </p>
-                            </div>
-                        </div>
+    <br /> - If you cannot swim or are not confident in your ability, shout loudly to ask for help from those around you.
 
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb30">
-                            <div className="f-profile text-center">
-                                <div className="fp-wrap f-invert">
-                                    <div className="fpw-overlay">
-                                        <div className="fpwo-wrap">
-                                            <div className="fpwow-icons">
-                                                <a href="#">
-                                                    <i className="fa fa-facebook fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-twitter fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-linkedin fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-pinterest fa-lg"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="fpw-overlay-btm"></div>
-                                    <img
-                                        src={team3}
-                                        className="fp-image img-fluid"
-                                        alt="John Shepard"
-                                    />
-                                </div>
-                                <h4 style={{ color: "black" }}>John Shepard</h4>
-                                <p style={{ color: "black" }}>
-                                    Chief Executive Officer
-                                </p>
-                            </div>
-                        </div>
+    <br /> - When using support objects such as sticks, ropes, etc., stand firmly and far enough away to avoid being pulled back into the water. <br /> - In case the victim is face down in the water, you need to immediately call emergency services such as 115 emergency...
+    <br /> - When bringing the drowning victim to shore, check the victim's reaction and breathing.
+    <br /> - If the victim is still breathing: Place the victim on one side.
 
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb30">
-                            <div className="f-profile text-center">
-                                <div className="fp-wrap f-invert">
-                                    <div className="fpw-overlay">
-                                        <div className="fpwo-wrap">
-                                            <div className="fpwow-icons">
-                                                <a href="#">
-                                                    <i className="fa fa-facebook fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-twitter fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-linkedin fa-lg"></i>
-                                                </a>
-                                                <a href="#">
-                                                    <i className="fa fa-pinterest fa-lg"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="fpw-overlay-btm"></div>
-                                    <img
-                                        src={team4}
-                                        className="fp-image img-fluid"
-                                        alt="Robyn Peel"
-                                    />
-                                </div>
-                                <h4 style={{ color: "black" }}>Robyn Peel</h4>
-                                <p style={{ color: "black" }}>
-                                    Director of Finance
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+If the victim cannot breathe, call 115 <br /> emergency and call for more help.
+Perform cardiopulmonary resuscitation.</p>
+<img src="https://tamanhhospital.vn/wp-content/uploads/2021/10/So-cuu-nguoi-duoi-nuoc.jpg" alt="" />
+    <h2 id="section3">First aid for people choking on foreign objects</h2>
+    <p>There are two types of foreign body aspiration: incomplete airway obstruction and complete airway obstruction. <br /> The following are signs of foreign body aspiration.
 
-            <section id="section-img-with-tab">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-lg-5 offset-lg-7">
-                            <h2>Only Quality For Clients</h2>
-                            <div className="spacer-20"></div>
+    <br /> - Incomplete airway obstruction, the victim often has symptoms: Coughing and trying to cough, trying to spit to <br /> expel the foreign body.
+    <br /> - Complete airway obstruction
+    <br /> - The victim cannot speak
+    <br /> - Holding the neck
+    <br /> - The victim has difficulty breathing, trying to breathe
+    <br /> - Eyes roll back, face looks panicked.
+    <br /> - The victim's face may be red, the blood vessels in the neck may swell
+    <br /> - The lips and tongue gradually turn purple.
+    <br /> - Perform first aid
+    <br /> - In case the victim can cough on their own:
+    <br /> - If breathing, encourage the victim to cough more to push the foreign object out.
+    <br /> -  When the victim is coughing, absolutely do not hit the back.
+    <br /> -  In case the victim cannot cough on his own
 
-                            <ul
-                                className="nav nav-pills mb-3"
-                                id="pills-tab"
-                                role="tablist"
-                            >
-                                <li className="nav-item" role="presentation">
-                                    <button
-                                        className="nav-link active"
-                                        id="pills-home-tab"
-                                        data-bs-toggle="pill"
-                                        data-bs-target="#pills-home"
-                                        type="button"
-                                        role="tab"
-                                        aria-controls="pills-home"
-                                        aria-selected="true"
-                                    >
-                                        Luxury
-                                    </button>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                    <button
-                                        className="nav-link"
-                                        id="pills-profile-tab"
-                                        data-bs-toggle="pill"
-                                        data-bs-target="#pills-profile"
-                                        type="button"
-                                        role="tab"
-                                        aria-controls="pills-profile"
-                                        aria-selected="false"
-                                    >
-                                        Comfort
-                                    </button>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                    <button
-                                        className="nav-link"
-                                        id="pills-contact-tab"
-                                        data-bs-toggle="pill"
-                                        data-bs-target="#pills-contact"
-                                        type="button"
-                                        role="tab"
-                                        aria-controls="pills-contact"
-                                        aria-selected="false"
-                                    >
-                                        Prestige
-                                    </button>
-                                </li>
-                            </ul>
-                            <div className="tab-content" id="pills-tabContent">
-                                <div
-                                    className="tab-pane fade show active"
-                                    id="pills-home"
-                                    role="tabpanel"
-                                    aria-labelledby="pills-home-tab"
-                                >
-                                    <p
-                                        style={{
-                                            color: "black",
-                                        }}
-                                    >
-                                        We offer a meticulously curated
-                                        collection of the most sought-after
-                                        luxury vehicles on the market. Whether
-                                        you prefer the sporty allure of a
-                                        high-performance sports car, the
-                                        sophistication of a sleek and luxurious
-                                        sedan, or the versatility of a premium
-                                        SUV, we have the perfect car to match
-                                        your discerning taste.
-                                    </p>
-                                </div>
-                                <div
-                                    className="tab-pane fade"
-                                    id="pills-profile"
-                                    role="tabpanel"
-                                    aria-labelledby="pills-profile-tab"
-                                >
-                                    <p>
-                                        We prioritize your comfort and
-                                        convenience throughout your journey. We
-                                        understand that a comfortable ride can
-                                        make a world of difference, whether
-                                        you're embarking on a business trip or
-                                        enjoying a leisurely vacation. That's
-                                        why we offer a wide range of
-                                        well-maintained, comfortable cars that
-                                        cater to your specific needs.
-                                    </p>
-                                </div>
-                                <div
-                                    className="tab-pane fade"
-                                    id="pills-contact"
-                                    role="tabpanel"
-                                    aria-labelledby="pills-contact-tab"
-                                >
-                                    <p>
-                                        We understand that prestige goes beyond
-                                        luxury. It's about making a statement,
-                                        embracing sophistication, and indulging
-                                        in the finer things in life. That's why
-                                        we offer an exclusive selection of
-                                        prestigious cars that exude elegance,
-                                        style, and status.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <br /> - If the victim is an infant
+    <br /> -  Use your hand to support the neck, place the child on his stomach on a pillow with his head slightly tilted down, <br /> use the palm of your hand to pat with moderate force on the bone area between the <br /> 2 shoulder blades, patting from below towards the nape of the neck.
+
+    <br /> - Use 2 fingers to press 5 times on the middle of the child's chest. If the child shows signs of coughing,  <br />stop and let the child cough on his own.
+
+    <br /> </p>
+    <img src="https://tamanhhospital.vn/wp-content/uploads/2021/10/So-cap-cuu-tre-hoc-di-vat-1.jpg" alt="divat" />
+    <h2 id="section4">How to perform cardiopulmonary <br /> resuscitation for  someone who is suffocating</h2>
+    <p>Cardiopulmonary resuscitation is a necessary first aid skill for people with <br /> cardiac arrest, septic shock, hemorrhagic shock, unconsciousness or suffocation due to drowning, electric shock, etc.
+
+    <br />-  Basic ways to detect a victim with cardiac arrest
+
+   <br /> Coma, shaking but not waking
+   <br /> No chest movement
+   <br /> No pulse in neck or femoral artery
+   <br />If you have 1 of the 3 signs above, call 115 or ask someone else to call for you before starting CPR. <br />
+   <br />  If there is only you and the victim, perform CPR for 2 minutes before calling for emergency help.</p>
+     <img src="https://tamanhhospital.vn/wp-content/uploads/2021/10/So-cap-cuu-hoi-suc-tim-phoi.jpg" alt="" />
+  </div>
+</div>
+
+
+        
 
             <section
                 id="section-call-to-action"
@@ -333,7 +157,7 @@ const Blogs = () => {
                                 <span className="pnb-text">Call Us Now</span>
                                 <span className="pnb-num">1 200 333 800</span>
                             </div>
-                            <a href="#" className="btn-main">
+                            <a href="" className="btn-main">
                                 Contact Us
                             </a>
                         </div>
