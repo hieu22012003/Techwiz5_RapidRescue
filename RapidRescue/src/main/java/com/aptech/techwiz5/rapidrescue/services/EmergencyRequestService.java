@@ -1,7 +1,6 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
 import com.aptech.techwiz5.rapidrescue.models.EmergencyRequest;
-import com.aptech.techwiz5.rapidrescue.models.User;
 import com.aptech.techwiz5.rapidrescue.repositories.EmergencyRequestRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -48,6 +47,12 @@ public class EmergencyRequestService implements IEmergencyRequestService {
         if(emergencyRequest.getPickupLocation() != null){
             emergencyRequest1.setPickupLocation(emergencyRequest.getPickupLocation());
         }
+        if (emergencyRequest.getEmail()!=null){
+            emergencyRequest1.setEmail(emergencyRequest.getEmail());
+        }
+//        if (emergencyRequest.getNumberPhone()!=null){
+//            emergencyRequest1.setNumberPhone(emergencyRequest.getNumberPhone());
+//        }
         if (emergencyRequest.getStatus() != null){
             emergencyRequest1.setStatus(emergencyRequest.getStatus());
         }

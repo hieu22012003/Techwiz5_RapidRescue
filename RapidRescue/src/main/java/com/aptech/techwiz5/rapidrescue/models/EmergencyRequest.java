@@ -26,6 +26,10 @@ public class EmergencyRequest {
     @JoinColumn(name = "ambulance_id")
     private Ambulance ambulance;
 
+    @Column(name = "email", nullable = false)
+    private String email;
+    @Column(name = "number_phone", nullable = false, length = 15)
+    private int numberPhone;
     @Column(name = "pickup_location", columnDefinition = "point not null")
     private Point pickupLocation;
 
