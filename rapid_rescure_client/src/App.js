@@ -20,6 +20,7 @@ import "./Pages/css/colors/scheme-01.css";
 // js
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "jquery";
+import Register from "./Pages/Register";
 
 function App() {
     return (
@@ -31,7 +32,6 @@ function App() {
                 <Route path="/Blogs" element={<Blogs />} />
                 <Route path="/Booking" element={<Booking />} />
                 <Route path="/Contact" element={<Contact />} />
-                <Route path="/Register" element={<Register />} />
             </Routes>
             <Footer />
         </BrowserRouter>
