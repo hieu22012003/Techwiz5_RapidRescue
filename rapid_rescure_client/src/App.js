@@ -8,6 +8,8 @@ import Blogs from "./Pages/Blogs";
 import Contact from "./Pages/Contact";
 import Booking from "./Pages/Booking";
 import Service from "./Pages/Service";
+import Register from "./Pages/Register";
+import ForgotPassword from "./Pages/ForgotPassword";
 // css
 import "./Pages/css/bootstrap.min.css";
 import "./Pages/css/mdb.min.css";
@@ -16,8 +18,9 @@ import "./Pages/css/style.css";
 import "./Pages/css/coloring.css";
 import "./Pages/css/colors/scheme-01.css";
 // js
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import "jquery";
+import Register from "./Pages/Register";
 
 function App() {
     return (
@@ -29,7 +32,6 @@ function App() {
                 <Route path="/Blogs" element={<Blogs />} />
                 <Route path="/Booking" element={<Booking />} />
                 <Route path="/Contact" element={<Contact />} />
-                <Route path="/Service" element={<Service />} />
             </Routes>
             <Footer />
         </BrowserRouter>
