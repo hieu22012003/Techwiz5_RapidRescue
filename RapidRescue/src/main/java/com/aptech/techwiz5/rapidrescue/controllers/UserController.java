@@ -1,56 +1,48 @@
 package com.aptech.techwiz5.rapidrescue.controllers;
 
 import com.aptech.techwiz5.rapidrescue.models.User;
+import com.aptech.techwiz5.rapidrescue.repositories.UserRepository;
 import com.aptech.techwiz5.rapidrescue.services.DriverService;
 import com.aptech.techwiz5.rapidrescue.services.EmergencyTechnicianService;
 import com.aptech.techwiz5.rapidrescue.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping
 @AllArgsConstructor
 public class UserController {
     final UserService userService;
     final EmergencyTechnicianService emergencyTechnicianService;
     final DriverService driverService;
+    @Autowired
+    private UserRepository userRepository;
 
-    @RequestMapping("/create")
-    public ResponseEntity<User> createUser(@RequestBody User user){
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(userService.createUser(user));
-    }
+//    @GetMapping("/user")
+//    public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
+//        System.out.println(Collections.singletonMap("name", principal.getAttribute("name")));
+//        return Collections.singletonMap("name", principal.getAttribute("name"));
+//    }
+@GetMapping("/user")
+public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
+    // Extract the user's name and email from the OAuth2User
+    String email = principal.getAttribute("email");
 
-    @PutMapping("/update")
-    public ResponseEntity<User> updateUser(@RequestBody User userUpdate){
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(userService.updateUser(userUpdate));
-    }
+    userService.saveUser(email);
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteUser(@RequestParam int id){
-        userService.deleteUser(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Delete success!!");
-    }
+    // Return a map containing the user's name and email
+    return Map.of(
+            "email", email
+    );
+}
 
-    @GetMapping
-    public ResponseEntity<List<User>> getAllUsers(){
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(userService.getAllUsers());
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<User>> getUserById(@PathVariable int id){
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(userService.getUserById(id));
-    }
 }

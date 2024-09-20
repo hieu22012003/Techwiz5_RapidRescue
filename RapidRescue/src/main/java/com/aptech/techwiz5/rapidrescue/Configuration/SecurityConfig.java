@@ -17,15 +17,35 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())  // Vô hiệu hóa CSRF
+                .csrf(csrf -> csrf.disable())  // Disable CSRF for simplicity
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .anyRequest().permitAll()  // Cho phép tất cả các yêu cầu
+                                .requestMatchers("/*").authenticated()  // Require authentication for the root ("/")
+                                .anyRequest().permitAll()  // Allow access to other pages (if any)
                 )
-                .cors(withDefaults());  // Bật hỗ trợ CORS
+                .oauth2Login(oauth2Login ->
+                        oauth2Login
+                                .defaultSuccessUrl("/user", true)  // Redirect to /user after successful login
+                )
+                .logout(logout ->
+                        logout.logoutSuccessUrl("/")  // Redirect to the root after logout
+                );
 
         return http.build();
     }
+
+
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http
+//            .csrf(csrf -> csrf.disable())  // Vô hiệu hóa CSRF
+//                .authorizeRequests()
+//                .requestMatchers("/*").permitAll()  // Allow access to the root
+//                .anyRequest().authenticated()   // Require authentication for other requests
+//                .and()
+//                .oauth2Login(withDefaults());  // Enable OAuth2 login
+//        return http.build();
+//    }
+
 
     @Bean
     public WebMvcConfigurer webMvcConfigurer() {

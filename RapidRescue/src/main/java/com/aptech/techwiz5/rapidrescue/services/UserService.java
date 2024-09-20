@@ -36,6 +36,23 @@ public class UserService implements IUserService{
         user.setCreatedAt(LocalDateTime.now());
         return userRepository.save(user);
     }
+    public User saveUser(String email) {
+        // Check if the user already exists
+        User existingUser = userRepository.findByEmail(email);
+        if (existingUser == null) {
+            // Create a new user if it doesn't exist
+            User newUser = new User();
+            newUser.setEmail(email);
+            newUser.setPhoneNumber("0121413323");
+            newUser.setId(1);
+            newUser.setLastName("ad");
+            newUser.setFirstName("ad");
+            newUser.setPassword("123456");
+            newUser.setCreatedAt(LocalDateTime.now()); // Set created timestamp
+            return userRepository.save(newUser); // Save the new user
+        }
+        return existingUser;  // Return the existing user if already present
+    }
 
     @Override
     public User updateUser(User user) {
