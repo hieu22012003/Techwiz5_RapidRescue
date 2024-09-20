@@ -1,6 +1,6 @@
-DROP DATABASE RapidRescure;
-CREATE DATABASE RapidRescure;
-USE RapidRescure;
+DROP DATABASE rapidrescue;
+CREATE DATABASE rapidrescue;
+USE rapidrescue;
 
 CREATE TABLE `ambulance` (
   `ambulance_id` int(11) NOT NULL,
