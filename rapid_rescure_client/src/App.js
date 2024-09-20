@@ -31,9 +31,7 @@ function App() {
                 <Route path="/Blogs" element={<Blogs />} />
                 <Route path="/Booking" element={<Booking />} />
                 <Route path="/Contact" element={<Contact />} />
-                <Route path="/Service" element={<Service />} />
                 <Route path="/Register" element={<Register />} />
-                <Route path="/ForgotPassword" element={<ForgotPassword />} />
             </Routes>
             <Footer />
         </BrowserRouter>
