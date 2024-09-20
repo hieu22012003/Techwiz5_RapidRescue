@@ -16,6 +16,7 @@ public class HospitalService {
     private HospitalRepository hospitalRepository;
 
     public Hospital createHospital(Hospital hospital) {
+        hospital.setCreatedAt(LocalDateTime.now());
         return hospitalRepository.save(hospital);
     }
     public Hospital updateHospital(Hospital hospitalUpdate) {
@@ -51,4 +52,5 @@ public class HospitalService {
         }
         return hospitalOptional.get();
     }
+
 }

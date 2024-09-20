@@ -19,7 +19,7 @@ public class Ambulancerunning {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "emergency_request_id")
-    private Emergencyrequest emergencyRequest;
+    private EmergencyRequest emergencyRequest;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

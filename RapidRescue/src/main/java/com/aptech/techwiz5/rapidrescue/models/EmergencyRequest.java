@@ -6,14 +6,13 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.geo.Point;
 
-import java.awt.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "emergencyrequest", schema = "RapidRescure")
-public class Emergencyrequest {
+public class EmergencyRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "request_id", nullable = false)
