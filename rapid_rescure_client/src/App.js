@@ -1,0 +1,45 @@
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Blogs from "./Pages/Blogs";
+import Contact from "./Pages/Contact";
+import Booking from "./Pages/Booking";
+import MedicalRecords from "./Pages/MedicalRecords";
+import MyProfile from "./Pages/MyProfile";
+import MyOrders from "./Pages/MyOrders";
+// css
+import "./Pages/css/bootstrap.min.css";
+import "./Pages/css/mdb.min.css";
+import "./Pages/css/plugins.css";
+import "./Pages/css/style.css";
+import "./Pages/css/coloring.css";
+import "./Pages/css/colors/scheme-01.css";
+// js
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import "jquery";
+import Register from "./Pages/Register";
+
+function App() {
+    return (
+        <BrowserRouter>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/Login" element={<Login />} />
+                <Route path="/Blogs" element={<Blogs />} />
+                <Route path="/Booking" element={<Booking />} />
+                <Route path="/Contact" element={<Contact />} />
+              <Route path="/MedicalRecords" element={<MedicalRecords />} />
+                <Route path="/MyProfile" element={<MyProfile />} />
+                <Route path="/MyOrders" element={<MyOrders />} />
+
+            </Routes>
+            <Footer />
+        </BrowserRouter>
+    );
+}
+
+export default App;

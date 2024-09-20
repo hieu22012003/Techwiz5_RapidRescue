@@ -6,15 +6,15 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "Tokens", schema = "RapidRescure")
+@Table(name = "tokens", schema = "RapidRescure")
 public class Token {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "token_id", nullable = false)
     private Integer id;
 
@@ -26,6 +26,7 @@ public class Token {
     @Column(name = "token_type", nullable = false)
     private String tokenType;
 
+    @Lob
     @Column(name = "token", nullable = false)
     private String token;
 
@@ -37,8 +38,9 @@ public class Token {
     @Column(name = "expires_at", nullable = false)
     private LocalDateTime expiresAt;
 
-    @Column(name = "is_revoked", nullable = false)
-    private Boolean isRevoked = false;
+    @ColumnDefault("0")
+    @Column(name = "is_revoked")
+    private Boolean isRevoked;
 
     @Column(name = "ip_address")
     private String ipAddress;
