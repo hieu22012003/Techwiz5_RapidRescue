@@ -24,8 +24,8 @@ public class HospitalService {
             throw new RuntimeException("Drivet not found");
         }
         Hospital hospital= hospitalOptional.get();
-        if(hospitalUpdate.getLocationId() != null){
-            hospital.setLocationId(hospitalUpdate.getLocationId());
+        if(hospitalUpdate.getLocation() != null){
+            hospital.setLocation(hospitalUpdate.getLocation());
         }
         if (hospitalUpdate.getHospitalName()!=null){
             hospital.setHospitalName(hospitalUpdate.getHospitalName());

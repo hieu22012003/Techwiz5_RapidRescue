@@ -9,7 +9,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import static org.springframework.security.config.Customizer.withDefaults;
+import java.util.Arrays;
+
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -20,9 +22,17 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())  // Vô hiệu hóa CSRF
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
+                                .requestMatchers("/ws-location/**").permitAll()
                                 .anyRequest().permitAll()  // Cho phép tất cả các yêu cầu
                 )
-                .cors(cors -> cors.configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()));  // Bật hỗ trợ CORS
+                .cors(cors -> cors.configurationSource(request -> {
+                    CorsConfiguration config = new CorsConfiguration();
+                    config.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Đặt miền chính xác
+                    config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+                    config.setAllowedHeaders(Arrays.asList("*"));
+                    config.setAllowCredentials(true);  // Cho phép credentials
+                    return config;
+                }));
 
         return http.build();
     }
@@ -33,10 +43,10 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000")  // Cập nhật theo domain của bạn
+                        .allowedOrigins("http://localhost:3000")  // Đặt miền chính xác
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(true);  // Cho phép credentials
             }
         };
     }
