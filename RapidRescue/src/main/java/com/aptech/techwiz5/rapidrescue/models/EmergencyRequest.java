@@ -29,7 +29,7 @@ public class EmergencyRequest {
     @Column(name = "email", nullable = false)
     private String email;
     @Column(name = "number_phone", nullable = false, length = 15)
-    private int numberPhone;
+    private String numberPhone;
     @Column(name = "pickup_location", columnDefinition = "point not null")
     private Point pickupLocation;
 

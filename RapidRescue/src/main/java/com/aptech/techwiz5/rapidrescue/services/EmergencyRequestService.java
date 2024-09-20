@@ -50,9 +50,9 @@ public class EmergencyRequestService implements IEmergencyRequestService {
         if (emergencyRequest.getEmail()!=null){
             emergencyRequest1.setEmail(emergencyRequest.getEmail());
         }
-//        if (emergencyRequest.getNumberPhone()!=null){
-//            emergencyRequest1.setNumberPhone(emergencyRequest.getNumberPhone());
-//        }
+        if (emergencyRequest.getNumberPhone()!="+84"){
+            emergencyRequest1.setNumberPhone(emergencyRequest.getNumberPhone());
+        }
         if (emergencyRequest.getStatus() != null){
             emergencyRequest1.setStatus(emergencyRequest.getStatus());
         }
