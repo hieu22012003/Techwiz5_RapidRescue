@@ -1,3 +1,4 @@
+
 package com.aptech.techwiz5.rapidrescue.Configuration;
 
 import org.springframework.context.annotation.Bean;
@@ -60,3 +61,4 @@ public class SecurityConfig {
         };
     }
 }
+

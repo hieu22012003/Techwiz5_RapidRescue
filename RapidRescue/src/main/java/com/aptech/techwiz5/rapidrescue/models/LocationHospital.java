@@ -6,15 +6,15 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.geo.Point;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "Location_hospital", schema = "RapidRescure")
+@Table(name = "location_hospital", schema = "RapidRescure")
 public class LocationHospital {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "location_hospital_id", nullable = false)
     private Integer id;
 
@@ -35,7 +35,7 @@ public class LocationHospital {
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "created_at", nullable = false)
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "updated_at", nullable = false)

@@ -1,0 +1,10 @@
+#mainmenu .menu-item:hover {
+  color: #ee296a !important;
+}
+#mainmenu .menu-item {
+  margin: 0;
+}
+
+.active {
+  color: #ee296a !important;
+}

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="096bb9cf-5dcd-44b7-a4ed-4467d64c870b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Admin Page/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin Page/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin Page/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Admin Page/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/Configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/Configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/RapidRescueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/RapidRescueApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/controllers/AmbulanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/controllers/AmbulanceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Ambulance.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Ambulance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/AmbulanceMaintenance.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/AmbulanceMaintenance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/EmergencyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/EmergencyRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/EmergencyResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/EmergencyResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/EmergencyTechnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/EmergencyTechnician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Feedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/FirstAidGuide.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/FirstAidGuide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Hospital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/LocationHospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/LocationHospital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/MedicalEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/MedicalEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/MedicalRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/MedicalRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/repositories/AmbulanceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/repositories/AmbulanceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/AmbulanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/AmbulanceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/test/java/com/aptech/techwiz5/rapidrescue/RapidRescueApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/test/java/com/aptech/techwiz5/rapidrescue/RapidRescueApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/src/reportWebVitals.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid_rescure_client/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/rapid_rescure_client/src/setupTests.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2mDuekkIVIQyRiqgUStW79xyZxH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/C#/DotNetPJ/Techwiz5_RapidRescue&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="096bb9cf-5dcd-44b7-a4ed-4467d64c870b" name="Changes" comment="" />
+      <created>1726623564866</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1726623564866</updated>
+      <workItem from="1726623565914" duration="2605000" />
+      <workItem from="1726626919368" duration="50000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
