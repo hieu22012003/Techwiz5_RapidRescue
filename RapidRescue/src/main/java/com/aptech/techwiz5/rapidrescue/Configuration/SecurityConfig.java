@@ -1,6 +1,9 @@
 
 package com.aptech.techwiz5.rapidrescue.Configuration;
 
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,11 +21,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+
                 .csrf(csrf -> csrf.disable())  // Disable CSRF for simplicity
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/*").authenticated()  // Require authentication for the root ("/")
-                                .anyRequest().permitAll()  // Allow access to other pages (if any)
+                                .requestMatchers("/login/oauth2/**", "/oauth2/**").permitAll()  // Cho phép truy cập mà không cần xác thực
+                                .requestMatchers("/user").authenticated()
+                                .anyRequest().permitAll()  // Yêu cầu xác thực cho các yêu cầu khác
                 )
                 .oauth2Login(oauth2Login ->
                         oauth2Login
@@ -48,6 +53,7 @@ public class SecurityConfig {
 //    }
 
 
+
     @Bean
     public WebMvcConfigurer webMvcConfigurer() {
         return new WebMvcConfigurer() {
@@ -56,7 +62,8 @@ public class SecurityConfig {
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:3000")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*");
+                        .allowedHeaders("*")
+                        .allowCredentials(true);  // Cho phép cookie và thông tin xác thực
             }
         };
     }

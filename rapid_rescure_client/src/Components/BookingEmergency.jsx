@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ambulanceCircle from "../Pages/assets/img/xecuuthuongVuong.png";
 import ambulanceSvg from "../Pages/assets/svg/ambulance-svgrepo-com.svg";
 import locationSvg from "../Pages/assets/svg/location-svgrepo-com.svg";
@@ -12,19 +12,44 @@ const BookingEmergency = () => {
 
   const [timeoutId, setTimeoutId] = useState(null);
   const [timeoutId1, setTimeoutId1] = useState(null);
-  const [location, setLocation] = useState({
-    latitude: null,
-    longitude: null,
-  });
-  const [locationDropOff, setLocationDropOff] = useState({
-    latitude: null,
-    longitude: null,
-  });
+  const [location, setLocation] = useState("");
+  const [locationDropOff, setLocationDropOff] = useState("");
 
   const [error, setError] = useState(null);
   const [bookingType, setBookingType] = useState("emergency"); // emergency or scheduled
   const [scheduledDate, setScheduledDate] = useState("");
   const [scheduledTime, setScheduledTime] = useState("");
+  const [hospitals, setHospitals] = useState([]);
+  const [ambulances, setAmbulances] = useState([]);
+const [nearestAmbulance, setNearestAmbulance] = useState(null);
+  const fetchHospitals = () => {
+    axios
+      .get("http://localhost:8080/hospital")
+      .then((response) => {
+        setHospitals(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching hospital data:", error);
+      });
+  };
+
+  const fetchAmbulancesAvai = () =>{
+    axios.get("http://localhost:8080/ambulances/available")
+    .then((res) =>{
+        setAmbulances(res.data);
+    })
+    .catch((err) =>{
+        console.error("Err to fetch ambulances available: ", err)
+    })
+  }
+
+  // Gọi hàm fetchHospitals khi component mount
+  useEffect(() => {
+    fetchHospitals();
+    fetchAmbulancesAvai();
+  }, []);
+  console.log("Hospital: ", hospitals);
+  console.log("Ambulance: ", ambulances);
 
   // Hàm debounce để tối ưu tìm kiếm
   const debounceSearchLocation = () => {
@@ -61,34 +86,101 @@ const BookingEmergency = () => {
       return;
     }
 
-    axios
-      .get(
-        `https://nominatim.openstreetmap.org/search?q=${query1}&format=json&addressdetails=1&limit=5`
-      )
-      .then((response) => {
-        setSuggestions1(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching location data:", error);
-      });
+    const nearestHospitals = findNearestHospitals(location);
+    setSuggestions1(nearestHospitals);
   };
   // Hàm chọn địa điểm và hiển thị tọa độ
+  //   const chooseLocation = (location) => {
+  //     setQuery(location.display_name);
+  //     setLocation({
+  //       lat: location.lat,
+  //       lon: location.lon,
+  //     });
+  //     setSuggestions([]); // Xóa danh sách gợi ý sau khi chọn
+  //   };
+
+  // const chooseLocationDropOff = (location) => {
+  //     setQuery1(location.display_name);
+  //     setLocationDropOff({
+  //       latitude: parseFloat(location.lat),
+  //       longitude: parseFloat(location.lon),
+  //     });
+  //     setSuggestions1([]); // Xóa danh sách gợi ý sau khi chọn
+  //   };
+  const findNearestAmbulance = (pickupLocation) => {
+    const [pickupLat, pickupLon] = pickupLocation.split(",").map(Number);
+  
+    if (ambulances.length === 0) {
+      return null; // Nếu không có xe cứu thương nào
+    }
+  
+    const nearestAmbulance = ambulances.map((ambulance) => {
+      // Giả sử bạn đã có tọa độ cho từng xe cứu thương trong data (bạn cần thêm thông tin tọa độ vào model xe cứu thương)
+      const [ambulanceLat, ambulanceLon] = ambulance.lastLocation.split(",").map(Number); 
+      const distance = calculateDistance(pickupLat, pickupLon, ambulanceLat, ambulanceLon);
+      return { ...ambulance, distance: distance.toFixed(2) };
+    }).sort((a, b) => a.distance - b.distance)[0]; // Lấy xe cứu thương gần nhất
+  
+    return nearestAmbulance;
+  };
+  
+  const calculateDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 6371; // Bán kính Trái Đất (km)
+    const dLat = ((lat2 - lat1) * Math.PI) / 180;
+    const dLon = ((lon2 - lon1) * Math.PI) / 180;
+
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((lat1 * Math.PI) / 180) *
+        Math.cos((lat2 * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    return R * c; // Khoảng cách tính bằng km
+  };
+  // Cập nhật hàm tính bệnh viện gần nhất
+  const findNearestHospitals = (pickupLocation) => {
+    const [latitude, longitude] = pickupLocation.split(",").map(Number); // Phân tích chuỗi thành mảng số
+
+    const nearestHospitals = hospitals
+      .map((hospital) => {
+        const [hospitalLat, hospitalLon] = hospital.location
+          .split(",")
+          .map(Number); // Phân tích chuỗi tọa độ của bệnh viện
+        const distance = calculateDistance(
+          latitude, // latitude của vị trí pickup
+          longitude, // longitude của vị trí pickup
+          hospitalLat, // hospitalLat của bệnh viện
+          hospitalLon // hospitalLon của bệnh viện
+        );
+        return { ...hospital, distance: distance.toFixed(2) };
+      })
+      .sort((a, b) => a.distance - b.distance);
+
+    return nearestHospitals;
+  };
+
   const chooseLocation = (location) => {
     setQuery(location.display_name);
-    setLocation({
-      lat: location.lat,
-      lon: location.lon,
-    });
-    setSuggestions([]); // Xóa danh sách gợi ý sau khi chọn
+    setLocation(`${location.lat},${location.lon}`); // Lưu tọa độ dưới dạng chuỗi
+    setSuggestions([]);
+
+    const nearestHospitals = findNearestHospitals(
+      `${location.lat},${location.lon}`
+    );
+
+    const nearestAmbulances = findNearestAmbulance(`${location.lat},${location.lon}`);
+
+
+    setSuggestions1(nearestHospitals);
+    setNearestAmbulance(nearestAmbulances);
   };
 
   const chooseLocationDropOff = (location) => {
-    setQuery1(location.display_name);
-    setLocationDropOff({
-      lat: location.lat,
-      lon: location.lon,
-    });
-    setSuggestions1([]); // Xóa danh sách gợi ý sau khi chọn
+    setQuery1(location.hospitalName);
+    setLocationDropOff(`${location.lat},${location.lon}`);
+    setSuggestions1([]);
   };
 
   const getLocation = () => {
@@ -131,20 +223,25 @@ const BookingEmergency = () => {
   };
 
   const showPosition = (position) => {
-    setLocation({
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude,
-    });
+    setLocation(`${position.coords.latitude},${position.coords.longitude}`); // Lưu dưới dạng chuỗi
     setQuery(`${position.coords.latitude},${position.coords.longitude}`);
     setError(null);
+    const nearestHospitals = findNearestHospitals(
+        `${position.coords.latitude},${position.coords.longitude}`
+      );
+  
+      const nearestAmbulances = findNearestAmbulance(`${position.coords.latitude},${position.coords.longitude}`);
+  
+  
+      setSuggestions1(nearestHospitals);
+      setNearestAmbulance(nearestAmbulances);
   };
-  const showPosition1 = (position) => {
-    setLocationDropOff({
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude,
-    });
-    setQuery1(`${position.coords.latitude},${position.coords.longitude}`);
 
+  const showPosition1 = (position) => {
+    setLocationDropOff(
+      `${position.coords.latitude},${position.coords.longitude}`
+    ); // Lưu dưới dạng chuỗi
+    setQuery1(`${position.coords.latitude},${position.coords.longitude}`);
     setError(null);
   };
 
@@ -298,17 +395,10 @@ const BookingEmergency = () => {
                                 key={index}
                                 className="suggestion-item"
                                 onClick={() => chooseLocationDropOff(location)}>
-                                {location.display_name}
+                                {location.hospitalName} - {location.distance} km
                               </div>
                             ))}
                           </div>
-
-                          <button
-                            type="button"
-                            className="btn-location"
-                            onClick={getLocation1}>
-                            <img src={locationSvg} alt="location icon" />
-                          </button>
                         </div>
                       </div>
 
@@ -452,7 +542,7 @@ const BookingEmergency = () => {
                                   disabled
                                   id="nearest_car"
                                   name="Nearest Car"
-                                  defaultValue="ABCD-1234"
+                                  value={nearestAmbulance ? nearestAmbulance.licensePlate : "N/A"}
                                   placeholder="Nearest Car"
                                   className="w-100"
                                 />
@@ -530,11 +620,9 @@ const BookingEmergency = () => {
                 </div>
               </div>
               <div className="circle-ambulance">
-              <img src={ambulanceCircle} alt="ambulance" />
+                <img src={ambulanceCircle} alt="ambulance" />
+              </div>
             </div>
-            </div>
-
-            
           </div>
         </div>
         <div className="spacer-double" />

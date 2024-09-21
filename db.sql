@@ -1,3 +1,4 @@
+DROP DATABASE RapidRescure;
 CREATE DATABASE RapidRescure;
 USE RapidRescure;
 
@@ -9,6 +10,10 @@ CREATE TABLE Role (
                       deleted_at TIMESTAMP NULL
 );
 
+INSERT INTO Role(role_name) Values ("admin");
+INSERT INTO Role(role_name) Values ("emt");
+INSERT INTO Role(role_name) Values ("driver");
+INSERT INTO Role(role_name) Values ("customer");
 CREATE TABLE User (
                       user_id INT AUTO_INCREMENT PRIMARY KEY,
                       user_name VARCHAR(255) NOT NULL,
@@ -28,9 +33,11 @@ CREATE TABLE Driver (
                         first_name VARCHAR(255) NOT NULL,
                         last_name VARCHAR(255) NOT NULL,
                         number_phone VARCHAR(20),
+                        user_id INT,
                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                        deleted_at TIMESTAMP NULL
+                        deleted_at TIMESTAMP NULL,
+                        CONSTRAINT FK_Patient_Driver FOREIGN KEY (user_id) REFERENCES User(user_id)
 );
 
 CREATE TABLE Ambulance (
@@ -38,6 +45,7 @@ CREATE TABLE Ambulance (
                            driver_id INT,
                            license_plate VARCHAR(50) NOT NULL,
                            ambulance_type ENUM('Basic', 'Advanced') NOT NULL,
+                           last_location varchar(255),
                            status ENUM('Available', 'On call', 'Maintenance') NOT NULL,
                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -50,7 +58,7 @@ CREATE TABLE EmergencyRequest (
                                   user_id INT,
                                   ambulance_id INT,
                                   emergency_type ENUM('Emergency', 'Non-emergency') NOT NULL,
-                                  pickup_location POINT NOT NULL,
+                                  pickup_location varchar(255) NOT NULL,
                                   location_hospital_id INT,
                                   status ENUM('Pending', 'Completed', 'Cancelled') NOT NULL,
                                   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -88,7 +96,7 @@ CREATE TABLE MedicalRecord (
 CREATE TABLE Hospital (
                           hospital_id INT AUTO_INCREMENT PRIMARY KEY,
                           hospital_name VARCHAR(255) NOT NULL,
-                          location_id INT,
+                          location varchar(255),
                           phone_number VARCHAR(20),
                           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                           updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -127,18 +135,7 @@ CREATE TABLE Notification (
                               CONSTRAINT FK_Notification_User FOREIGN KEY (user_id) REFERENCES User(user_id)
 );
 
-CREATE TABLE Location_hospital (
-                                   location_hospital_id INT AUTO_INCREMENT PRIMARY KEY,
-                                   ambulance_id INT,
-                                   patient_id INT,
-                                   location POINT NOT NULL,
-                                   description TEXT,
-                                   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                                   deleted_at TIMESTAMP NULL,
-                                   CONSTRAINT FK_Location_Ambulance FOREIGN KEY (ambulance_id) REFERENCES Ambulance(ambulance_id),
-                                   CONSTRAINT FK_Location_Patient FOREIGN KEY (patient_id) REFERENCES Patient(patient_id)
-);
+
 
 CREATE TABLE FirstAidGuide (
                                guide_id INT AUTO_INCREMENT PRIMARY KEY,

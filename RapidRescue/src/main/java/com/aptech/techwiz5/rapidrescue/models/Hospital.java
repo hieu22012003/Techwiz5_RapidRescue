@@ -1,9 +1,13 @@
 package com.aptech.techwiz5.rapidrescue.models;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
+
+import org.hibernate.annotations.Type;
+import org.locationtech.jts.geom.Point;
 
 import java.time.LocalDateTime;
 
@@ -20,9 +24,7 @@ public class Hospital {
     @Column(name = "hospital_name", nullable = false)
     private String hospitalName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "location_id")
-    private LocationHospital location;
+
 
     @Column(name = "phone_number", length = 15)
     private String phoneNumber;
@@ -37,5 +39,9 @@ public class Hospital {
 
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
+
+
+    @Column(name = "location")
+    private String location;
 
 }

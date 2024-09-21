@@ -35,6 +35,16 @@ public class AmbulanceController {
         return ResponseEntity.status(HttpStatus.OK).body("Delete success!!");
     }
 
+    @GetMapping("/available")
+    public ResponseEntity<List<Ambulance>> getAvailableAmbulances() {
+        List<Ambulance> availableAmbulances = ambulanceService.getAvailableAmbulances();
+        if (availableAmbulances.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(availableAmbulances);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(availableAmbulances);
+    }
+
+
     @GetMapping
     public ResponseEntity<List<Ambulance>> getAllAmbulances(){
         return ResponseEntity

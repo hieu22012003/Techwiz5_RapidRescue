@@ -1,9 +1,11 @@
 package com.aptech.techwiz5.rapidrescue.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
+import org.springframework.data.geo.Point;
 
 import java.time.LocalDateTime;
 
@@ -17,8 +19,9 @@ public class Ambulance {
     @Column(name = "ambulance_id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "driver_id")
+//    @JsonIgnore
     private Driver driver;
 
     @Column(name = "license_plate", nullable = false, length = 50)
@@ -42,5 +45,7 @@ public class Ambulance {
 
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
+    @Column(name = "last_location")
+    private String lastLocation;
 
 }
