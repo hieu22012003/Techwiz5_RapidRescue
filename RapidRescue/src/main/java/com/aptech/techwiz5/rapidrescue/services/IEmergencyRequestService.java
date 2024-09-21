@@ -1,5 +1,6 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
+
 import com.aptech.techwiz5.rapidrescue.models.EmergencyRequest;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface IEmergencyRequestService {
     EmergencyRequest createEmergencyRequest(EmergencyRequest emergencyRequest);
     EmergencyRequest updateEmergencyRequest(EmergencyRequest emergencyRequest);
     void deleteEmergencyRequest(Integer id);
+    Optional<EmergencyRequest> cancel(Integer id);
 }

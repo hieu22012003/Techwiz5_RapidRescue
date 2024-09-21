@@ -9,10 +9,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -34,15 +33,26 @@ public class UserController {
 //    }
 @GetMapping("/user")
 public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
-    // Extract the user's name and email from the OAuth2User
+    // Lấy email, Google ID và userName từ OAuth2User
     String email = principal.getAttribute("email");
+    String googleId = principal.getAttribute("sub");  // Thông thường Google ID sẽ nằm trong "sub"
+    String userName = principal.getAttribute("name"); // Có thể dùng "name" cho tên người dùng từ Google
 
-    userService.saveUser(email);
+    // Lưu người dùng với email, Google ID và userName
+    userService.saveUser(email, googleId, userName);
 
-    // Return a map containing the user's name and email
+    // Trả về thông tin người dùng
     return Map.of(
-            "email", email
+            "email", email,
+            "googleId", googleId,
+            "userName", userName
     );
+}
+@GetMapping("/list")
+    public ResponseEntity<List<User>> listUser(Model model){
+    return ResponseEntity
+            .status(HttpStatus.OK)
+            .body(userService.getAllUsers());
 }
 
 }

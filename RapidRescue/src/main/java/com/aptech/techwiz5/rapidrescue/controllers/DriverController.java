@@ -47,7 +47,7 @@ public class DriverController {
     public ResponseEntity<Optional<Driver>> getDriverById(@PathVariable int id){
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(driverService.getDriverById(id));
+                .body(Optional.ofNullable(driverService.getDriverById(id)));
     }
 
 

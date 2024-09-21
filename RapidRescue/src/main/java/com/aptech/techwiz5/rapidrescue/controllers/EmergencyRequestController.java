@@ -1,6 +1,5 @@
 package com.aptech.techwiz5.rapidrescue.controllers;
 
-import com.aptech.techwiz5.rapidrescue.models.Ambulance;
 import com.aptech.techwiz5.rapidrescue.models.EmergencyRequest;
 import com.aptech.techwiz5.rapidrescue.services.EmailService;
 import com.aptech.techwiz5.rapidrescue.services.EmergencyRequestService;
@@ -69,6 +68,13 @@ public class EmergencyRequestController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An internal server error occurred.");
         }
+    }
+
+    @PostMapping("cancel/{id}")
+    public ResponseEntity<?> cancel(@RequestBody Integer id){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(emergencyRequestService.cancel(id));
     }
 
 }

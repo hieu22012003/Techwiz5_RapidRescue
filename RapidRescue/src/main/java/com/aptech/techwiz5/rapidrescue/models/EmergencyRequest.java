@@ -6,14 +6,13 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.geo.Point;
 
-import java.awt.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "emergencyrequest", schema = "RapidRescure")
-public class Emergencyrequest {
+public class EmergencyRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "request_id", nullable = false)
@@ -27,6 +26,10 @@ public class Emergencyrequest {
     @JoinColumn(name = "ambulance_id")
     private Ambulance ambulance;
 
+    @Column(name = "email", nullable = false)
+    private String email;
+    @Column(name = "number_phone", nullable = false, length = 15)
+    private String numberPhone;
     @Column(name = "pickup_location", columnDefinition = "point not null")
     private Point pickupLocation;
 

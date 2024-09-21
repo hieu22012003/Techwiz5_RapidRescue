@@ -1,6 +1,5 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
-import com.aptech.techwiz5.rapidrescue.models.EmergencyRequest;
 import com.aptech.techwiz5.rapidrescue.models.EmergencyTechnician;
 import com.aptech.techwiz5.rapidrescue.repositories.EmergencyTechnicianRepository;
 import lombok.AllArgsConstructor;

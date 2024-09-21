@@ -10,28 +10,19 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "emergencyresponse", schema = "RapidRescure")
-public class Emergencyresponse {
+@Table(name = "emergencytechnician", schema = "RapidRescure")
+public class EmergencyTechnician {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "response_id", nullable = false)
+    @Column(name = "technician_id", nullable = false)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "emergency_request_id")
-    private Emergencyrequest emergencyRequest;
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "technician_id")
-    private Emergencytechnician technician;
-
-    @ColumnDefault("current_timestamp()")
-    @Column(name = "response_time", nullable = false)
-    private LocalDateTime responseTime;
-
-    @Lob
-    @Column(name = "response_status", nullable = false)
-    private String responseStatus;
+    @Column(name = "certification", nullable = false)
+    private String certification;
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "created_at", nullable = false)

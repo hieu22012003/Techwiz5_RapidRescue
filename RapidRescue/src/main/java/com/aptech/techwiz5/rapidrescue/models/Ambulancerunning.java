@@ -19,11 +19,7 @@ public class Ambulancerunning {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "emergency_request_id")
-    private Emergencyrequest emergencyRequest;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    private EmergencyRequest emergencyRequest;
 
     @ColumnDefault("current_timestamp()")
     @Column(name = "date_time", nullable = false)
