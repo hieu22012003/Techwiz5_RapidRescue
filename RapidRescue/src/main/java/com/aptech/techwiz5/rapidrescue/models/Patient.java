@@ -21,12 +21,6 @@ public class Patient {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
-
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
-
     @Lob
     @Column(name = "medical_history")
     private String medicalHistory;

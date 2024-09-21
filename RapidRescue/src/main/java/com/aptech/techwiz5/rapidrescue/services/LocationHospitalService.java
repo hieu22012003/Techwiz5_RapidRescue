@@ -26,9 +26,6 @@ public class LocationHospitalService {
         if (locationHospitalUpdate.getAmbulance() !=null){
             locationHospital.setAmbulance(locationHospitalUpdate.getAmbulance());
         }
-        if (locationHospitalUpdate.getPatient() !=null){
-            locationHospital.setPatient(locationHospitalUpdate.getPatient());
-        }
         if (locationHospitalUpdate.getLocation() !=null){
             locationHospital.setLocation(locationHospitalUpdate.getLocation());
         }

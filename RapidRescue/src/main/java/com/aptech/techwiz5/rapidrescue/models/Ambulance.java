@@ -29,6 +29,10 @@ public class Ambulance {
     private String ambulanceType;
 
     @Lob
+    @Column(name = "last_location" , nullable = false)
+    private String lastLocation;
+
+    @Lob
     @Column(name = "status", nullable = false)
     private String status;
 

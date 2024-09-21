@@ -22,9 +22,6 @@ public class LocationHospital {
     @JoinColumn(name = "ambulance_id")
     private Ambulance ambulance;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
 
     @Column(name = "location", columnDefinition = "point not null")
     private Point location;

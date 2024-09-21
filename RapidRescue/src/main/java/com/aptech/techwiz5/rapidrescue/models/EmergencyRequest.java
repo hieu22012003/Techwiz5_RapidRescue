@@ -28,8 +28,10 @@ public class EmergencyRequest {
 
     @Column(name = "email", nullable = false)
     private String email;
+
     @Column(name = "number_phone", nullable = false, length = 15)
     private String numberPhone;
+
     @Column(name = "pickup_location", columnDefinition = "point not null")
     private Point pickupLocation;
 
@@ -37,8 +39,9 @@ public class EmergencyRequest {
     @Column(name = "emergency_type", nullable = false)
     private String emergencyType;
 
-    @Column(name = "location_hospital_id")
-    private Integer locationHospitalId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_hospital_id")
+    private LocationHospital locationHospital;
 
     @Lob
     @Column(name = "status", nullable = false)

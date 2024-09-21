@@ -34,6 +34,9 @@ public class AmbulanceService {
         if (ambulanceUpdate.getAmbulanceType() != null){
             ambulance.setAmbulanceType(ambulanceUpdate.getAmbulanceType());
         }
+        if (ambulanceUpdate.getLastLocation()!=null){
+            ambulance.setLastLocation(ambulanceUpdate.getLastLocation());
+        }
         if(ambulanceUpdate.getStatus() != null){
             ambulance.setStatus(ambulanceUpdate.getStatus());
         }
