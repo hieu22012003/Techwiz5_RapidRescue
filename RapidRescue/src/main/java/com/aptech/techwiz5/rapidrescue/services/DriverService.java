@@ -2,7 +2,6 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
 import com.aptech.techwiz5.rapidrescue.models.Driver;
-import com.aptech.techwiz5.rapidrescue.models.EmergencyRequest;
 import com.aptech.techwiz5.rapidrescue.repositories.DriveRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

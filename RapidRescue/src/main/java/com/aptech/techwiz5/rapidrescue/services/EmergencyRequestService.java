@@ -1,7 +1,6 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
-import com.aptech.techwiz5.rapidrescue.models.EmergencyRequest;
-import com.aptech.techwiz5.rapidrescue.models.User;
+import com.aptech.techwiz5.rapidrescue.models.Emergencyrequest;
 import com.aptech.techwiz5.rapidrescue.repositories.EmergencyRequestRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,13 +14,13 @@ import java.util.Optional;
 public class EmergencyRequestService implements IEmergencyRequestService {
     final EmergencyRequestRepository emergencyRequestRepository;
     @Override
-    public List<EmergencyRequest> getAllEmergencyRequest() {
+    public List<Emergencyrequest> getAllEmergencyRequest() {
         return emergencyRequestRepository.findAll();
     }
 
     @Override
-    public Optional<EmergencyRequest> getEmergencyRequestById(Integer id) {
-        Optional<EmergencyRequest> emergencyRequest = emergencyRequestRepository.findById(id);
+    public Optional<Emergencyrequest> getEmergencyRequestById(Integer id) {
+        Optional<Emergencyrequest> emergencyRequest = emergencyRequestRepository.findById(id);
         if (emergencyRequest.isEmpty()){
             throw new RuntimeException("Emergency Request not found");
         }
@@ -29,19 +28,19 @@ public class EmergencyRequestService implements IEmergencyRequestService {
     }
 
     @Override
-    public EmergencyRequest createEmergencyRequest(EmergencyRequest emergencyRequest) {
+    public Emergencyrequest createEmergencyRequest(Emergencyrequest emergencyRequest) {
         emergencyRequest.setCreatedAt(LocalDateTime.now());
         return emergencyRequestRepository.save(emergencyRequest);
     }
 
     @Override
-    public EmergencyRequest updateEmergencyRequest(EmergencyRequest emergencyRequest) {
-        Optional<EmergencyRequest> emergencyRequestOptional = emergencyRequestRepository.findById(emergencyRequest.getId());
+    public Emergencyrequest updateEmergencyRequest(Emergencyrequest emergencyRequest) {
+        Optional<Emergencyrequest> emergencyRequestOptional = emergencyRequestRepository.findById(emergencyRequest.getId());
         if (emergencyRequestOptional.isEmpty()){
             throw new RuntimeException("Emergency Request not found");
         }
 
-        EmergencyRequest emergencyRequest1 = emergencyRequestOptional.get();
+        Emergencyrequest emergencyRequest1 = emergencyRequestOptional.get();
         if(emergencyRequest.getEmergencyType() != null){
             emergencyRequest1.setEmergencyType(emergencyRequest.getEmergencyType());
         }

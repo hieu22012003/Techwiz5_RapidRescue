@@ -1,7 +1,6 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
-import com.aptech.techwiz5.rapidrescue.models.EmergencyRequest;
-import com.aptech.techwiz5.rapidrescue.models.EmergencyTechnician;
+import com.aptech.techwiz5.rapidrescue.models.Emergencytechnician;
 import com.aptech.techwiz5.rapidrescue.repositories.EmergencyTechnicianRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,13 +14,13 @@ import java.util.Optional;
 public class EmergencyTechnicianService implements IEmergencyTechnicianService {
     final EmergencyTechnicianRepository emergencyTechnicianRepository;
     @Override
-    public List<EmergencyTechnician> getAllEmergencyTechnicians() {
+    public List<Emergencytechnician> getAllEmergencyTechnicians() {
         return emergencyTechnicianRepository.findAll();
     }
 
     @Override
-    public Optional<EmergencyTechnician> getEmergencyTechnicianById(Integer id) {
-        Optional<EmergencyTechnician> emergencyTechnician = emergencyTechnicianRepository.findById(id);
+    public Optional<Emergencytechnician> getEmergencyTechnicianById(Integer id) {
+        Optional<Emergencytechnician> emergencyTechnician = emergencyTechnicianRepository.findById(id);
         if (emergencyTechnician.isEmpty()){
             throw new RuntimeException("Emergency Technician not found");
         }
@@ -29,19 +28,19 @@ public class EmergencyTechnicianService implements IEmergencyTechnicianService {
     }
 
     @Override
-    public EmergencyTechnician creEmergencyTechnician(EmergencyTechnician emergencyTechnician) {
+    public Emergencytechnician creEmergencyTechnician(Emergencytechnician emergencyTechnician) {
         emergencyTechnician.setCreatedAt(LocalDateTime.now());
         return emergencyTechnicianRepository.save(emergencyTechnician);
     }
 
     @Override
-    public EmergencyTechnician updateEmergencyTechnician(EmergencyTechnician emergencyTechnician) {
-        Optional<EmergencyTechnician> emergencyTechnicianOptional = emergencyTechnicianRepository.findById(emergencyTechnician.getId());
+    public Emergencytechnician updateEmergencyTechnician(Emergencytechnician emergencyTechnician) {
+        Optional<Emergencytechnician> emergencyTechnicianOptional = emergencyTechnicianRepository.findById(emergencyTechnician.getId());
         if (emergencyTechnicianOptional.isEmpty()){
             throw new RuntimeException("Emergency Technician not found");
         }
 
-        EmergencyTechnician emergencyTechnician1 = emergencyTechnicianOptional.get();
+        Emergencytechnician emergencyTechnician1 = emergencyTechnicianOptional.get();
         if(emergencyTechnician.getUser() != null){
             emergencyTechnician1.setUser(emergencyTechnician.getUser());
         }
