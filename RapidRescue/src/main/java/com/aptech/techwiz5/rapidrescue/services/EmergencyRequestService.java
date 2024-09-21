@@ -1,6 +1,6 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
-import com.aptech.techwiz5.rapidrescue.models.Emergencyrequest;
+import com.aptech.techwiz5.rapidrescue.models.EmergencyRequest;
 import com.aptech.techwiz5.rapidrescue.repositories.EmergencyRequestRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,24 +28,30 @@ public class EmergencyRequestService implements IEmergencyRequestService {
     }
 
     @Override
-    public Emergencyrequest createEmergencyRequest(Emergencyrequest emergencyRequest) {
+    public EmergencyRequest createEmergencyRequest(EmergencyRequest emergencyRequest) {
         emergencyRequest.setCreatedAt(LocalDateTime.now());
         return emergencyRequestRepository.save(emergencyRequest);
     }
 
     @Override
-    public Emergencyrequest updateEmergencyRequest(Emergencyrequest emergencyRequest) {
-        Optional<Emergencyrequest> emergencyRequestOptional = emergencyRequestRepository.findById(emergencyRequest.getId());
+    public EmergencyRequest updateEmergencyRequest(EmergencyRequest emergencyRequest) {
+        Optional<EmergencyRequest> emergencyRequestOptional = emergencyRequestRepository.findById(emergencyRequest.getId());
         if (emergencyRequestOptional.isEmpty()){
             throw new RuntimeException("Emergency Request not found");
         }
 
-        Emergencyrequest emergencyRequest1 = emergencyRequestOptional.get();
+        EmergencyRequest emergencyRequest1 = emergencyRequestOptional.get();
         if(emergencyRequest.getEmergencyType() != null){
             emergencyRequest1.setEmergencyType(emergencyRequest.getEmergencyType());
         }
         if(emergencyRequest.getPickupLocation() != null){
             emergencyRequest1.setPickupLocation(emergencyRequest.getPickupLocation());
+        }
+        if (emergencyRequest.getEmail()!=null){
+            emergencyRequest1.setEmail(emergencyRequest.getEmail());
+        }
+        if (emergencyRequest.getNumberPhone()!="+84"){
+            emergencyRequest1.setNumberPhone(emergencyRequest.getNumberPhone());
         }
         if (emergencyRequest.getStatus() != null){
             emergencyRequest1.setStatus(emergencyRequest.getStatus());

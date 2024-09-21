@@ -1,8 +1,7 @@
-
 package com.aptech.techwiz5.rapidrescue.services;
 
 import com.aptech.techwiz5.rapidrescue.models.Driver;
-import com.aptech.techwiz5.rapidrescue.repositories.DriveRepository;
+import com.aptech.techwiz5.rapidrescue.repositories.DriverRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,54 +11,45 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class DriverService implements IDriverService{
-    final DriveRepository driveRepository;
-    @Override
-    public List<Driver> getAllDrive() {
-        return driveRepository.findAll();
+public class DriverService {
+    private DriverRepository driverRepository;
+
+    public Driver createDriver(Driver driver) {
+        driver.setCreatedAt(LocalDateTime.now());
+        return driverRepository.save(driver);
     }
 
-    @Override
-    public Optional<Driver> getDriveById(Integer driver_id) {
-        Optional<Driver> driver = driveRepository.findById(driver_id);
-        if (driver.isEmpty()){
+    public Driver updateDriver(Driver driverUpdate) {
+        Optional<Driver> driverOptional = driverRepository.findById(driverUpdate.getId());
+        if (driverOptional.isPresent()) {
             throw new RuntimeException("Driver not found");
         }
+        Driver driver = driverOptional.get();
+
+        if (driverUpdate.getFirstName() != null) {
+            driver.setFirstName(driverUpdate.getFirstName());
+        }
+        if (driverUpdate.getLastName() != null) {
+            driver.setLastName(driverUpdate.getLastName());
+        }
+        if (driver.getNumberPhone()!= null){
+            driver.setNumberPhone(driverUpdate.getNumberPhone());
+        }
+        driver.setUpdatedAt(LocalDateTime.now());
         return driver;
     }
-
-    @Override
-    public Driver createDrive(Driver driver) {
-        driver.setCreatedAt(LocalDateTime.now());
-        return driveRepository.save(driver);
+    public void deleteDriver(int id) {
+        driverRepository.deleteById(id);
+    }
+    public List<Driver> getAllDrivers() {
+        return driverRepository.findAll();
     }
 
-    @Override
-    public Driver updateDrive(Driver driver) {
-        Optional<Driver> driverOptional = driveRepository.findById(driver.getId());
-        if (driverOptional.isEmpty()){
+    public Driver getDriverById(int id) {
+        Optional<Driver> driverOptional = driverRepository.findById(id);
+        if (driverOptional.isPresent()) {
             throw new RuntimeException("Driver not found");
         }
-
-        Driver driver1 = driverOptional.get();
-        if(driver.getId() != null){
-            driver1.setId(driver.getId());
-        }
-        if(driver.getFirstName() != null){
-            driver1.setFirstName(driver.getFirstName());
-        }
-        if (driver.getLastName() != null){
-            driver1.setLastName(driver.getLastName());
-        }
-        if (driver.getNumberPhone() != null){
-            driver1.setNumberPhone(driver.getNumberPhone());
-        }
-        driver1.setUpdatedAt(LocalDateTime.now());
-        return driver1;
-    }
-
-    @Override
-    public void deleteDrive(Integer driver_id) {
-
+        return driverOptional.get();
     }
 }

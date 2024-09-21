@@ -20,19 +20,19 @@ public class DriverController {
     public ResponseEntity<Driver> createDriver(@RequestBody Driver driver){
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(driverService.createDrive(driver));
+                .body(driverService.createDriver(driver));
     }
 
     @PutMapping("/update")
     public ResponseEntity<Driver> updateDriver(@RequestBody Driver DriverUpdate){
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(driverService.updateDrive(DriverUpdate));
+                .body(driverService.updateDriver(DriverUpdate));
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteDriver(@RequestParam int id){
-        driverService.deleteDrive(id);
+        driverService.deleteDriver(id);
         return ResponseEntity.status(HttpStatus.OK).body("Delete success!!");
     }
 
@@ -40,14 +40,14 @@ public class DriverController {
     public ResponseEntity<List<Driver>> getAllDrivers(){
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(driverService.getAllDrive());
+                .body(driverService.getAllDrivers());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Driver>> getDriverById(@PathVariable int id){
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(driverService.getDriveById(id));
+                .body(Optional.ofNullable(driverService.getDriverById(id)));
     }
 
 

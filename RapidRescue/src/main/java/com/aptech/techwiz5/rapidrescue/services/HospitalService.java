@@ -16,12 +16,13 @@ public class HospitalService {
     private HospitalRepository hospitalRepository;
 
     public Hospital createHospital(Hospital hospital) {
+        hospital.setCreatedAt(LocalDateTime.now());
         return hospitalRepository.save(hospital);
     }
     public Hospital updateHospital(Hospital hospitalUpdate) {
         Optional<Hospital> hospitalOptional = hospitalRepository.findById(hospitalUpdate.getId());
         if (hospitalOptional.isPresent()) {
-            throw new RuntimeException("Drivet not found");
+            throw new RuntimeException("Hospital not found");
         }
         Hospital hospital= hospitalOptional.get();
         if(hospitalUpdate.getLocation() != null){
@@ -39,10 +40,17 @@ public class HospitalService {
     public void deleteHospital(int id) {
         hospitalRepository.deleteById(id);
     }
+
     public List<Hospital> getAllHospitals() {
         return hospitalRepository.findAll();
     }
-    public Optional<Hospital> getHospitalById(int id) {
-        return hospitalRepository.findById(id);
+
+    public Hospital getHospitalById(int id) {
+        Optional<Hospital> hospitalOptional = hospitalRepository.findById(id);
+        if (hospitalOptional.isPresent()) {
+            throw new RuntimeException("Hospital not found");
+        }
+        return hospitalOptional.get();
     }
+
 }

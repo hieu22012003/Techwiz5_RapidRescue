@@ -7,21 +7,20 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
-
-    private final JavaMailSender mailSender;
-
     @Autowired
-    public EmailService(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
-    }
+    private JavaMailSender mailSender;
 
-    public void sendEmail(String to, String subject, String text) {
+    public void sendEmail(String toEmail,
+                          String subject,
+                          String body){
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(to);
+        message.setFrom("youngspidey2301@gmail.com");
+        message.setTo(toEmail);
+        message.setText(body);
         message.setSubject(subject);
-        message.setText(text);
-        message.setFrom("Dongvu7173@gmail.com"); // Đảm bảo rằng bạn đã đặt đúng địa chỉ email gửi
+
         mailSender.send(message);
+
+        System.out.println("Mail sent Success...");
     }
 }
-
