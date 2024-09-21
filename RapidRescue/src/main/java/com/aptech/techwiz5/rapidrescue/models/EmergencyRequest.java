@@ -30,8 +30,8 @@ public class EmergencyRequest {
     private String email;
     @Column(name = "number_phone", nullable = false, length = 15)
     private String numberPhone;
-    @Column(name = "pickup_location", columnDefinition = "point not null")
-    private Point pickupLocation;
+    @Column(name = "pickup_location")
+    private String pickupLocation;
 
     @Lob
     @Column(name = "emergency_type", nullable = false)
@@ -54,9 +54,5 @@ public class EmergencyRequest {
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 
-/*
- TODO [Reverse Engineering] create field to map the 'pickup_location' column
- Available actions: Define target Java type | Uncomment as is | Remove column mapping
 
-*/
 }

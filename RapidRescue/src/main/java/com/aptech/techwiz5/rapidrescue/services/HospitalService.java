@@ -4,6 +4,8 @@ package com.aptech.techwiz5.rapidrescue.services;
 import com.aptech.techwiz5.rapidrescue.models.Hospital;
 import com.aptech.techwiz5.rapidrescue.repositories.HospitalRepository;
 import lombok.AllArgsConstructor;
+
+import org.locationtech.jts.geom.Point;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -16,6 +18,7 @@ public class HospitalService {
     private HospitalRepository hospitalRepository;
 
     public Hospital createHospital(Hospital hospital) {
+
         hospital.setCreatedAt(LocalDateTime.now());
         return hospitalRepository.save(hospital);
     }

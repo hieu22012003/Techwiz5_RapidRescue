@@ -1,6 +1,7 @@
 package com.aptech.techwiz5.rapidrescue.controllers;
 
 import com.aptech.techwiz5.rapidrescue.models.User;
+import com.aptech.techwiz5.rapidrescue.repositories.RoleRepository;
 import com.aptech.techwiz5.rapidrescue.repositories.UserRepository;
 import com.aptech.techwiz5.rapidrescue.services.DriverService;
 import com.aptech.techwiz5.rapidrescue.services.EmergencyTechnicianService;
@@ -26,28 +27,37 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+
 //    @GetMapping("/user")
 //    public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
 //        System.out.println(Collections.singletonMap("name", principal.getAttribute("name")));
 //        return Collections.singletonMap("name", principal.getAttribute("name"));
 //    }
 @GetMapping("/user")
-public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
-    // Lấy email, Google ID và userName từ OAuth2User
+public String user(@AuthenticationPrincipal OAuth2User principal) {
+    // Lấy thông tin người dùng từ OAuth2User
     String email = principal.getAttribute("email");
-    String googleId = principal.getAttribute("sub");  // Thông thường Google ID sẽ nằm trong "sub"
-    String userName = principal.getAttribute("name"); // Có thể dùng "name" cho tên người dùng từ Google
-
-    // Lưu người dùng với email, Google ID và userName
+    String googleId = principal.getAttribute("sub");
+    String userName = principal.getAttribute("name");
+// Lưu người dùng với email, Google ID và userName
     userService.saveUser(email, googleId, userName);
 
-    // Trả về thông tin người dùng
-    return Map.of(
-            "email", email,
-            "googleId", googleId,
-            "userName", userName
-    );
+
+    // Trả về trang HTML có script để gửi dữ liệu về lại ReactJS và tự động đóng popup
+    return "<html><body>" +
+            "<script>" +
+            "window.opener.postMessage(" +
+            "{ email: '" + email + "', googleId: '" + googleId + "', userName: '" + userName + "' }, '*');" +
+            "window.close();" +  // Đóng popup sau khi gửi dữ liệu
+            "</script>" +
+            "</body></html>";
 }
+
+@GetMapping("/role/{email}")
+public  ResponseEntity<String> getRole (@PathVariable String email){
+    return ResponseEntity.status(HttpStatus.OK).body(userService.getRole(email));
+}
+
 @GetMapping("/list")
     public ResponseEntity<List<User>> listUser(Model model){
     return ResponseEntity

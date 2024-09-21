@@ -44,11 +44,18 @@ public class AmbulanceService {
         if (ambulanceUpdate.getAmbulanceType() != null){
             ambulance.setAmbulanceType(ambulanceUpdate.getAmbulanceType());
         }
+        if(ambulanceUpdate.getLastLocation() != null){
+            ambulance.setLastLocation(ambulanceUpdate.getLastLocation());
+        }
         if(ambulanceUpdate.getStatus() != null){
             ambulance.setStatus(ambulanceUpdate.getStatus());
         }
         ambulance.setUpdatedAt(LocalDateTime.now());
         return ambulance;
+    }
+
+    public List<Ambulance> getAvailableAmbulances() {
+        return ambulanceRepository.findAmbulancesByStatus("Available");
     }
 
     public void deleteAmbulance(int id){

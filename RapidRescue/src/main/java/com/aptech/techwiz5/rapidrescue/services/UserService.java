@@ -1,8 +1,10 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
 import com.aptech.techwiz5.rapidrescue.models.User;
+import com.aptech.techwiz5.rapidrescue.repositories.RoleRepository;
 import com.aptech.techwiz5.rapidrescue.repositories.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,6 +17,8 @@ import java.util.UUID;
 public class UserService implements IUserService{
     final UserRepository userRepository;
 
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Override
     public List<User> getAllUsers() {
@@ -47,6 +51,7 @@ public class UserService implements IUserService{
             newUser.setEmail(email);
             newUser.setGoogleId(googleId); // Set the Google ID
             newUser.setCreatedAt(LocalDateTime.now()); // Set created timestamp
+            newUser.setRole(roleRepository.findByRoleName("customer").get());
             return userRepository.save(newUser); // Save the new user
         }
 
@@ -87,5 +92,10 @@ public class UserService implements IUserService{
     @Override
     public void deleteUser(Integer user_id) {
         userRepository.deleteById(user_id);
+    }
+
+    public String getRole (String email){
+        User user = userRepository.findByEmail(email);
+        return user.getRole().getRoleName();
     }
 }
