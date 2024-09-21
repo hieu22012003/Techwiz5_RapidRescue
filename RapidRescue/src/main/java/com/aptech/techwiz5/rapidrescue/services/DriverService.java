@@ -15,6 +15,7 @@ public class DriverService {
     private DriverRepository driverRepository;
 
     public Driver createDriver(Driver driver) {
+
         driver.setCreatedAt(LocalDateTime.now());
         return driverRepository.save(driver);
     }

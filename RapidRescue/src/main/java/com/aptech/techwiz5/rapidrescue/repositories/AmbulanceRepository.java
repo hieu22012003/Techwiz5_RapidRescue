@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AmbulanceRepository extends JpaRepository<Ambulance,Integer > {
+    Ambulance findByLicensePlate(String license_plate);
 }

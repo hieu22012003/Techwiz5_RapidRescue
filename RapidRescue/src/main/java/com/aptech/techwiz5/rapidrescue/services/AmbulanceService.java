@@ -13,10 +13,20 @@ import java.util.Optional;
 public class AmbulanceService {
     private final AmbulanceRepository ambulanceRepository;
 
-    public Ambulance createAmbulance(Ambulance ambulance){
+    public Ambulance createAmbulance(Ambulance ambulance) {
+        // Kiểm tra xem xe cứu thương có biển số đã tồn tại trong cơ sở dữ liệu không
+        Optional<Ambulance> ambulanceOptional = Optional.ofNullable(ambulanceRepository.findByLicensePlate(ambulance.getLicensePlate()));
+
+        if (ambulanceOptional.isPresent()) {
+            // Nếu tồn tại, ném ra ngoại lệ
+            throw new RuntimeException("Ambulance with this license plate already exists");
+        }
         ambulance.setCreatedAt(LocalDateTime.now());
+
+        // Lưu xe cứu thương vào database
         return ambulanceRepository.save(ambulance);
     }
+
 
     public Ambulance updateAmbulance(Ambulance ambulanceUpdate){
         Optional<Ambulance> ambulanceOptional = ambulanceRepository.findById(ambulanceUpdate.getId());
