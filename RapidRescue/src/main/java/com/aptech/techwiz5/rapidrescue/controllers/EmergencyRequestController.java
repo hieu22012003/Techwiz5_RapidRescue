@@ -1,6 +1,6 @@
 package com.aptech.techwiz5.rapidrescue.controllers;
 
-import com.aptech.techwiz5.rapidrescue.models.Emergencyrequest;
+import com.aptech.techwiz5.rapidrescue.models.EmergencyRequest;
 import com.aptech.techwiz5.rapidrescue.services.EmailService;
 import com.aptech.techwiz5.rapidrescue.services.EmergencyRequestService;
 import jakarta.validation.Valid;
@@ -25,7 +25,7 @@ public class EmergencyRequestController {
     final EmailService emailService;
 
     @GetMapping
-    public ResponseEntity<List<Emergencyrequest>> getAllEmergencyRequest(){
+    public ResponseEntity<List<EmergencyRequest>> getAllEmergencyRequest(){
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(emergencyRequestService.getAllEmergencyRequest());
@@ -38,7 +38,7 @@ public class EmergencyRequestController {
 //    }
 
     @PutMapping("/update")
-    public ResponseEntity<Emergencyrequest> updateEmergencyRequest(@RequestBody Emergencyrequest emergencyRequest){
+    public ResponseEntity<EmergencyRequest> updateEmergencyRequest(@RequestBody EmergencyRequest emergencyRequest){
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(emergencyRequestService.updateEmergencyRequest(emergencyRequest));
@@ -51,7 +51,7 @@ public class EmergencyRequestController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> createRequest(@Valid @RequestBody Emergencyrequest emergencyRequest, BindingResult result) {
+    public ResponseEntity<?> createRequest(@Valid @RequestBody EmergencyRequest emergencyRequest, BindingResult result) {
         if (result.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
             result.getFieldErrors().forEach(error -> errors.put(error.getField(), error.getDefaultMessage()));
@@ -59,7 +59,7 @@ public class EmergencyRequestController {
         }
 
         try {
-            Emergencyrequest savedRequest = emergencyRequestService.createEmergencyRequest(emergencyRequest);
+            EmergencyRequest savedRequest = emergencyRequestService.createEmergencyRequest(emergencyRequest);
             emailService.sendEmail("DongVu7173@gmail.com", "subject", "Body");
             return ResponseEntity.ok(savedRequest);
 

@@ -14,13 +14,13 @@ import java.util.Optional;
 public class EmergencyRequestService implements IEmergencyRequestService {
     final EmergencyRequestRepository emergencyRequestRepository;
     @Override
-    public List<Emergencyrequest> getAllEmergencyRequest() {
+    public List<EmergencyRequest> getAllEmergencyRequest() {
         return emergencyRequestRepository.findAll();
     }
 
     @Override
-    public Optional<Emergencyrequest> getEmergencyRequestById(Integer id) {
-        Optional<Emergencyrequest> emergencyRequest = emergencyRequestRepository.findById(id);
+    public Optional<EmergencyRequest> getEmergencyRequestById(Integer id) {
+        Optional<EmergencyRequest> emergencyRequest = emergencyRequestRepository.findById(id);
         if (emergencyRequest.isEmpty()){
             throw new RuntimeException("Emergency Request not found");
         }

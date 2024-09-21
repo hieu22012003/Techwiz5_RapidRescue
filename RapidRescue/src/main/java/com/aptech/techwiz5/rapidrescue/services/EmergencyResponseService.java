@@ -1,6 +1,6 @@
 package com.aptech.techwiz5.rapidrescue.services;
 
-import com.aptech.techwiz5.rapidrescue.models.Emergencyresponse;
+import com.aptech.techwiz5.rapidrescue.models.EmergencyResponse;
 import com.aptech.techwiz5.rapidrescue.repositories.EmergencyResponseRepository;
 import com.aptech.techwiz5.rapidrescue.repositories.EmergencyTechnicianRepository;
 import lombok.AllArgsConstructor;
@@ -16,8 +16,8 @@ public class EmergencyResponseService implements IEmergencyResponseService{
     final EmergencyResponseRepository emergencyResponseRepository;
 
     @Override
-    public Optional<Emergencyresponse> getEmergencyResponseById(Integer response_id) {
-        Optional<Emergencyresponse> emergencyResponse = emergencyResponseRepository.findById(response_id);
+    public Optional<EmergencyResponse> getEmergencyResponseById(Integer response_id) {
+        Optional<EmergencyResponse> emergencyResponse = emergencyResponseRepository.findById(response_id);
         if (emergencyResponse.isEmpty()){
             throw new RuntimeException("Emergency Response not found");
         }
@@ -25,7 +25,7 @@ public class EmergencyResponseService implements IEmergencyResponseService{
     }
 
     @Override
-    public List<Emergencyresponse> getAllEmrgencyResponse() {
+    public List<EmergencyResponse> getAllEmrgencyResponse() {
         return emergencyResponseRepository.findAll();
     }
 }
