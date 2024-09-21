@@ -70,4 +70,11 @@ public class EmergencyRequestController {
         }
     }
 
+    @PostMapping("cancel/{id}")
+    public ResponseEntity<?> cancel(@RequestBody Integer id){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(emergencyRequestService.cancel(id));
+    }
+
 }

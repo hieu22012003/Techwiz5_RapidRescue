@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ddaa635-5c9e-4190-a23a-d6b931150da8" name="Changes" comment="fix err git config">
+    <list default="true" id="8ddaa635-5c9e-4190-a23a-d6b931150da8" name="Changes" comment="fix err git config ver 2">
+      <change afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/controllers/EmergencyTechnicianController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/controllers/EmergencyRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/controllers/EmergencyRequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/repositories/EmergencyRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/repositories/EmergencyRequestRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/repositories/EmergencyResponseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/repositories/EmergencyResponseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/repositories/EmergencyTechnicianRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/repositories/EmergencyTechnicianRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/EmergencyRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/EmergencyRequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/EmergencyResponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/EmergencyResponseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/EmergencyTechnicianService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/EmergencyTechnicianService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/IEmergencyRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/IEmergencyRequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/IEmergencyResponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/IEmergencyResponseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/IEmergencyTechnicianService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RapidRescue/src/main/java/com/aptech/techwiz5/rapidrescue/services/IEmergencyTechnicianService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726893714364</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix err git config ver 2">
+      <option name="closed" value="true" />
+      <created>1726895003725</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1726895003725</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +269,8 @@
     <MESSAGE value="add EmailService&#10;update EmergencyRequestController" />
     <MESSAGE value="update login, save user &#10;update db" />
     <MESSAGE value="fix err git config" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix err git config" />
+    <MESSAGE value="fix err git config ver 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix err git config ver 2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

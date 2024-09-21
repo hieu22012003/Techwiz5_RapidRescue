@@ -12,4 +12,5 @@ public interface IEmergencyRequestService {
     EmergencyRequest createEmergencyRequest(EmergencyRequest emergencyRequest);
     EmergencyRequest updateEmergencyRequest(EmergencyRequest emergencyRequest);
     void deleteEmergencyRequest(Integer id);
+    Optional<EmergencyRequest> cancel(Integer id);
 }
