@@ -29,8 +29,8 @@ public class User {
     @Column(name = "phone_number", nullable = false, length = 15)
     private String phoneNumber;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "googleId", nullable = false)
+    private String googleId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")
