@@ -34,15 +34,21 @@ public class UserController {
 //    }
 @GetMapping("/user")
 public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
-    // Extract the user's name and email from the OAuth2User
+    // Lấy email, Google ID và userName từ OAuth2User
     String email = principal.getAttribute("email");
+    String googleId = principal.getAttribute("sub");  // Thông thường Google ID sẽ nằm trong "sub"
+    String userName = principal.getAttribute("name"); // Có thể dùng "name" cho tên người dùng từ Google
 
-    userService.saveUser(email);
+    // Lưu người dùng với email, Google ID và userName
+    userService.saveUser(email, googleId, userName);
 
-    // Return a map containing the user's name and email
+    // Trả về thông tin người dùng
     return Map.of(
-            "email", email
+            "email", email,
+            "googleId", googleId,
+            "userName", userName
     );
 }
+
 
 }
