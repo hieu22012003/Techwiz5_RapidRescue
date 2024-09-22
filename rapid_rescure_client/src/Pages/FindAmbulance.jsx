@@ -86,14 +86,14 @@ const FindAmbulance = () => {
     <div
       className="container-fluid container-tracker"
       style={{ padding: "150px 0" }}>
-      <div className="m-auto d-flex find-container">
+      {/* <div className="m-auto d-flex find-container">
         <input
           type="text"
           className="input-find"
           placeholder="Input license plate"
         />
         <input type="button" className="btn-find" value="Find" />
-      </div>
+      </div> */}
       <div id="map" ref={mapRef} />
     </div>
   );

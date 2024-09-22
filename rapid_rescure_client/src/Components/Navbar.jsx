@@ -176,6 +176,16 @@ const Navbar = () => {
                       Contact
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      className={`menu-item ${
+                        location.pathname === "/ambulance/tracker" ? "active" : ""
+                      }`}
+                      to="/ambulance/tracker"
+                      style={{ color: "#000" }}>
+                      Tracker Ambulance
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div className="de-flex-col">
