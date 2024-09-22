@@ -95,6 +95,10 @@ const Navbar = () => {
             console.log("emt");
           } else if (userData.roleName === "driver") {
             console.log("driver");
+            localStorage.removeItem("userData");
+            window.location.href = `http://localhost:3001?data=${encodeURIComponent(JSON.stringify(userData))}`;
+
+
           } else {
             setUserData(userData);
             setIsLogin(true);
