@@ -298,6 +298,26 @@ const BookingEmergency = () => {
     color: "#fff",
   };
 
+  const handleBookingEmergency = () => {
+    const data = {
+      email,
+      numberPhone: phoneNumber,
+      pickupLocation: location,
+      ambulance: { id: nearestAmbulance.id },
+      emergencyType: "Emergency",
+      status: "Pending",
+    };
+    axios
+      .post("http://localhost:8080/emergency-request/create", data)
+      .then((response) => {
+        console.log(response.data);
+        alert("Booking Success!");
+      })
+      .catch((error) => {
+        console.error("Err to create emergency request: ", error);
+      });
+  };
+
   return (
     <section
       id="section-hero"
