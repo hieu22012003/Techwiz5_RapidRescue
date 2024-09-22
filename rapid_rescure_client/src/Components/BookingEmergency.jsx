@@ -14,14 +14,15 @@ const BookingEmergency = () => {
   const [timeoutId1, setTimeoutId1] = useState(null);
   const [location, setLocation] = useState("");
   const [locationDropOff, setLocationDropOff] = useState("");
-
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState(null);
   const [bookingType, setBookingType] = useState("emergency"); // emergency or scheduled
   const [scheduledDate, setScheduledDate] = useState("");
   const [scheduledTime, setScheduledTime] = useState("");
   const [hospitals, setHospitals] = useState([]);
   const [ambulances, setAmbulances] = useState([]);
-const [nearestAmbulance, setNearestAmbulance] = useState(null);
+  const [nearestAmbulance, setNearestAmbulance] = useState(null);
   const fetchHospitals = () => {
     axios
       .get("http://localhost:8080/hospital")
@@ -33,15 +34,16 @@ const [nearestAmbulance, setNearestAmbulance] = useState(null);
       });
   };
 
-  const fetchAmbulancesAvai = () =>{
-    axios.get("http://localhost:8080/ambulances/available")
-    .then((res) =>{
+  const fetchAmbulancesAvai = () => {
+    axios
+      .get("http://localhost:8080/ambulances/available")
+      .then((res) => {
         setAmbulances(res.data);
-    })
-    .catch((err) =>{
-        console.error("Err to fetch ambulances available: ", err)
-    })
-  }
+      })
+      .catch((err) => {
+        console.error("Err to fetch ambulances available: ", err);
+      });
+  };
 
   // Gọi hàm fetchHospitals khi component mount
   useEffect(() => {
@@ -109,21 +111,30 @@ const [nearestAmbulance, setNearestAmbulance] = useState(null);
   //   };
   const findNearestAmbulance = (pickupLocation) => {
     const [pickupLat, pickupLon] = pickupLocation.split(",").map(Number);
-  
+
     if (ambulances.length === 0) {
       return null; // Nếu không có xe cứu thương nào
     }
-  
-    const nearestAmbulance = ambulances.map((ambulance) => {
-      // Giả sử bạn đã có tọa độ cho từng xe cứu thương trong data (bạn cần thêm thông tin tọa độ vào model xe cứu thương)
-      const [ambulanceLat, ambulanceLon] = ambulance.lastLocation.split(",").map(Number); 
-      const distance = calculateDistance(pickupLat, pickupLon, ambulanceLat, ambulanceLon);
-      return { ...ambulance, distance: distance.toFixed(2) };
-    }).sort((a, b) => a.distance - b.distance)[0]; // Lấy xe cứu thương gần nhất
-  
+
+    const nearestAmbulance = ambulances
+      .map((ambulance) => {
+        // Giả sử bạn đã có tọa độ cho từng xe cứu thương trong data (bạn cần thêm thông tin tọa độ vào model xe cứu thương)
+        const [ambulanceLat, ambulanceLon] = ambulance.lastLocation
+          .split(",")
+          .map(Number);
+        const distance = calculateDistance(
+          pickupLat,
+          pickupLon,
+          ambulanceLat,
+          ambulanceLon
+        );
+        return { ...ambulance, distance: distance.toFixed(2) };
+      })
+      .sort((a, b) => a.distance - b.distance)[0]; // Lấy xe cứu thương gần nhất
+
     return nearestAmbulance;
   };
-  
+
   const calculateDistance = (lat1, lon1, lat2, lon2) => {
     const R = 6371; // Bán kính Trái Đất (km)
     const dLat = ((lat2 - lat1) * Math.PI) / 180;
@@ -170,8 +181,9 @@ const [nearestAmbulance, setNearestAmbulance] = useState(null);
       `${location.lat},${location.lon}`
     );
 
-    const nearestAmbulances = findNearestAmbulance(`${location.lat},${location.lon}`);
-
+    const nearestAmbulances = findNearestAmbulance(
+      `${location.lat},${location.lon}`
+    );
 
     setSuggestions1(nearestHospitals);
     setNearestAmbulance(nearestAmbulances);
@@ -227,14 +239,15 @@ const [nearestAmbulance, setNearestAmbulance] = useState(null);
     setQuery(`${position.coords.latitude},${position.coords.longitude}`);
     setError(null);
     const nearestHospitals = findNearestHospitals(
-        `${position.coords.latitude},${position.coords.longitude}`
-      );
-  
-      const nearestAmbulances = findNearestAmbulance(`${position.coords.latitude},${position.coords.longitude}`);
-  
-  
-      setSuggestions1(nearestHospitals);
-      setNearestAmbulance(nearestAmbulances);
+      `${position.coords.latitude},${position.coords.longitude}`
+    );
+
+    const nearestAmbulances = findNearestAmbulance(
+      `${position.coords.latitude},${position.coords.longitude}`
+    );
+
+    setSuggestions1(nearestHospitals);
+    setNearestAmbulance(nearestAmbulances);
   };
 
   const showPosition1 = (position) => {
@@ -342,6 +355,37 @@ const [nearestAmbulance, setNearestAmbulance] = useState(null);
                   </div>
 
                   <div className="col-lg-8">
+                    <div className="row g-4 mb-2">
+                      <div className="col-lg-6">
+                        <h5 style={{ color: "#222" }}>Email</h5>
+                        <div className="d-flex w-100 ">
+                          <input
+                            type="text"
+                            name="Email"
+                            id="pick_up_location email"
+                            className="form-control opt-1-disable"
+                            placeholder="Your Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="col-lg-6">
+                        <h5 style={{ color: "#222" }}>Phone Number</h5>
+                        <div className="d-flex w-100 ">
+                          <input
+                            type="text"
+                            name="PhoneNumber"
+                            id="drop_off_location phoneNumber"
+                            className="form-control opt-1-disable"
+                            placeholder="Your Phone Number"
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                    </div>
                     <div className="row g-4">
                       <div className="col-lg-6">
                         <h5 style={{ color: "#222" }}>Pick Up Location</h5>
@@ -542,7 +586,11 @@ const [nearestAmbulance, setNearestAmbulance] = useState(null);
                                   disabled
                                   id="nearest_car"
                                   name="Nearest Car"
-                                  value={nearestAmbulance ? nearestAmbulance.licensePlate : "N/A"}
+                                  value={
+                                    nearestAmbulance
+                                      ? nearestAmbulance.licensePlate
+                                      : "N/A"
+                                  }
                                   placeholder="Nearest Car"
                                   className="w-100"
                                 />

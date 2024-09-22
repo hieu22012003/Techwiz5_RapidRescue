@@ -37,8 +37,6 @@ public class EmergencyRequest {
     @Column(name = "emergency_type", nullable = false)
     private String emergencyType;
 
-    @Column(name = "location_hospital_id")
-    private Integer locationHospitalId;
 
     @Lob
     @Column(name = "status", nullable = false)

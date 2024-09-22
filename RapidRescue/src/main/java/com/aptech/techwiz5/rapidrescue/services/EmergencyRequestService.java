@@ -31,7 +31,7 @@ public class EmergencyRequestService implements IEmergencyRequestService {
     @Override
     public EmergencyRequest createEmergencyRequest(EmergencyRequest emergencyRequest) {
         emergencyRequest.setCreatedAt(LocalDateTime.now());
-        emergencyRequest.setStatus("active");
+        emergencyRequest.setStatus("Pending");
         return emergencyRequestRepository.save(emergencyRequest);
     }
 
@@ -52,7 +52,7 @@ public class EmergencyRequestService implements IEmergencyRequestService {
         if (emergencyRequest.getEmail()!=null){
             emergencyRequest1.setEmail(emergencyRequest.getEmail());
         }
-        if (emergencyRequest.getNumberPhone()!="+84"){
+        if (emergencyRequest.getNumberPhone()  != null){
             emergencyRequest1.setNumberPhone(emergencyRequest.getNumberPhone());
         }
         if (emergencyRequest.getStatus() != null){
