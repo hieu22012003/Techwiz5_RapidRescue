@@ -618,9 +618,10 @@ const BookingEmergency = () => {
                             </div>
                             <div className="row mt-3 mx-0">
                               <input
-                                type="submit"
+                                type="button"
                                 id="send_message"
                                 value="Booking"
+                                onClick={handleBookingEmergency}
                                 className="btn-main w-100 mx-auto px-0"
                                 style={buttonStyle}
                               />
